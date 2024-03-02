@@ -1,0 +1,13 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    container_name: account-db
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_USER=admin
+      - POSTGRES_DB=datenbank
+ 
+ 
