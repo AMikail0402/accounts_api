@@ -16,7 +16,7 @@ import accounts.app.account.Entity.Account;
 import accounts.app.account.Repositories.AccountRepository;
 
 @RestController
-@RequestMapping(path = "api/v1/account")
+@RequestMapping(path = "api/account")
 public class AccountController {
 
     private final AccountService accountService;
