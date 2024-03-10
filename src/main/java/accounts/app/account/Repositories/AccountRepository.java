@@ -11,7 +11,7 @@ import accounts.app.account.Entity.Account;
 public interface AccountRepository 
     extends JpaRepository<Account, Long>{
 
-        @Query("SELECT a FROM Account WHERE a.account_id = :id")
+        @Query("SELECT a FROM Account a WHERE a.account_id = :id")
         Account findAccountById(@Param("id") Long id);
 
 }

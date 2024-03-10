@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import accounts.app.account.Dto.AccountReadDto;
 import accounts.app.account.Dto.AddAccountDto;
 import accounts.app.account.Dto.DeleteAccountDto;
 import accounts.app.account.Entity.Account;
@@ -27,7 +28,7 @@ public class AccountController {
     }
 
     @GetMapping
-    public List<Account> getAccounts(){
+    public List<AccountReadDto> getAccounts(){
         return accountService.getAccounts();
     }
 

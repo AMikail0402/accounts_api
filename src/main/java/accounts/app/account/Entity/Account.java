@@ -7,9 +7,13 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
-@Table
+@Table(name = "user_account")
+@Getter
+@Setter
 public class Account {
     
     @Id
@@ -26,7 +30,7 @@ public class Account {
     @Column
     private int account_status;
     @Column
-    private long account_amount;
+    private Long account_amount;
     @Column
     private String currency;
 
@@ -42,7 +46,8 @@ public class Account {
         return "Account{"+
                 "account_status="+this.account_status+
                 ", account_id="+this.account_id+
-                ", person_name='"+
+                ", account_currency="+this.currency+
+                ", account_amount="+this.account_amount+
                 "\' }";
     }
 }

@@ -13,7 +13,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name ="account_user")
+@Table(name ="user_profile")
 public class User {
     @Id
     @GeneratedValue( strategy = GenerationType.SEQUENCE)
@@ -26,6 +26,6 @@ public class User {
     private String address;
     @Column
     private String phone_number;
-    @Column
-    private List<Account> accounts;
+    //@Column
+    //private List<Account> accounts;
 }
