@@ -9,13 +9,10 @@ import lombok.Getter;
 public class AddAccountDto {
 
     @JsonProperty
-    private String person_name;
-
-    @JsonProperty
-    private String person_email;
+    private String currency;
 
     public Account exportAsAccount(){
-        return new Account(1, person_name, person_email);
+        return new Account(1,0L,this.currency);
     }
 
 }

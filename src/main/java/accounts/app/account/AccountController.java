@@ -10,13 +10,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import accounts.app.account.Dto.AccountReadDto;
 import accounts.app.account.Dto.AddAccountDto;
 import accounts.app.account.Dto.DeleteAccountDto;
 import accounts.app.account.Entity.Account;
 import accounts.app.account.Repositories.AccountRepository;
 
 @RestController
-@RequestMapping(path = "api/v1/account")
+@RequestMapping(path = "api/account")
 public class AccountController {
 
     private final AccountService accountService;
@@ -27,7 +28,7 @@ public class AccountController {
     }
 
     @GetMapping
-    public List<Account> getAccounts(){
+    public List<AccountReadDto> getAccounts(){
         return accountService.getAccounts();
     }
 
@@ -37,7 +38,7 @@ public class AccountController {
     }
    
     @DeleteMapping
-    public void deleteAccountsByName(@RequestBody DeleteAccountDto account){
-        accountService.deleteAccountsByName(account);
+    public void deleteAccountById(@RequestBody DeleteAccountDto account){
+        accountService.deleteAccountById(account);
     }
 }
