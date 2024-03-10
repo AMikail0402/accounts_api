@@ -10,3 +10,7 @@ Lern-Ressourcen:
     - https://www.baeldung.com/java-jar-manifest
     - https://www.baeldung.com/spring-boot-fix-the-no-main-manifest-attribute
 
+Zum Ausführen startup.sh ausführen
+
+
+
