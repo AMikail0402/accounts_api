@@ -37,7 +37,7 @@ public class AccountController {
     }
    
     @DeleteMapping
-    public void deleteAccountsByName(@RequestBody DeleteAccountDto account){
-        accountService.deleteAccountsByName(account);
+    public void deleteAccountById(@RequestBody DeleteAccountDto account){
+        accountService.deleteAccountById(account);
     }
 }

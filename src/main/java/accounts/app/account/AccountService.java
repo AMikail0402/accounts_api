@@ -29,10 +29,8 @@ public class AccountService {
         accountRepository.save(accountToBeSaved);          
     }
 
-    public void deleteAccountsByName(DeleteAccountDto account){
-        List<Account> associatedAccounts = accountRepository.findAccountsByPersonName(account.getPerson_name());
-        for(Account x : associatedAccounts){
-            accountRepository.delete(x);
-        } 
+    public void deleteAccountById(DeleteAccountDto account){
+        Account associatedAccount = accountRepository.findAccountById(account.getAccount_id());
+        accountRepository.delete(associatedAccount);
     }
 }

@@ -26,39 +26,23 @@ public class Account {
     @Column
     private int account_status;
     @Column
-    private String person_name;
+    private long account_amount;
     @Column
-    private String person_email;
+    private String currency;
 
     public Account(){}
 
-    public Account(int account_status,String person_name, String person_email){
+    public Account(int account_status, Long account_amount, String currency){
         this.account_status = account_status;
-        this.person_name = person_name;
-        this.person_email = person_email;
+        this.account_amount = account_amount;
+        this.currency = currency;
     }
-
-    public int getAccountStatus(){
-        return this.account_status;
-    }
-
-    public Long getAccountId(){
-        return this.account_id;
-    }
-
-    public String getPersonName(){
-        return  this.person_name;
-    }
-
-    public String getPersonEmail(){
-        return  this.person_email;
-    }
-
+   
     public String toString(){
         return "Account{"+
                 "account_status="+this.account_status+
                 ", account_id="+this.account_id+
-                ", person_name='"+this.person_name+"\'"+
-                ", person_email='"+this.person_email+"\' }";
+                ", person_name='"+
+                "\' }";
     }
 }

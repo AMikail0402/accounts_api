@@ -1,7 +1,10 @@
 package accounts.app.user.entities;
 
+import java.util.List;
+
 import org.hibernate.annotations.Generated;
 
+import accounts.app.account.Entity.Account;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -23,4 +26,6 @@ public class User {
     private String address;
     @Column
     private String phone_number;
+    @Column
+    private List<Account> accounts;
 }

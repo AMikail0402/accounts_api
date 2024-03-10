@@ -8,6 +8,6 @@ import lombok.Getter;
 public class DeleteAccountDto {
 
     @JsonProperty
-    private String person_name;
+    private Long account_id;
 
 }
