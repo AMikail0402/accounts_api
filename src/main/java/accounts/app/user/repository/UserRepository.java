@@ -11,9 +11,14 @@ import accounts.app.user.entities.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User,Long> {
+
     @Query("SELECT a FROM User a WHERE a.surname = :name")
-    String findAccountUserBySurname(@Param("name") String name);
+    User findAccountUserBySurname(@Param("name") String name);
+
+    @Query("SELECT a FROM User a WHERE a.id = :user_id")
+    User findUserById(@Param("user_id") Long id);
 
     @Query("SELECT a FROM User a")
     List<User> findAllUsers();
+    
 }

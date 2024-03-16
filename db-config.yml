@@ -10,8 +10,7 @@ services:
       - POSTGRES_USER=admin
       - POSTGRES_DB=datenbank
   api:
-    build:
-      context: ./Dockerfile
+    build: .
     container_name: account-api
     ports: 
       - "8080:8080"
