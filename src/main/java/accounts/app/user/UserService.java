@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import accounts.app.user.Dto.AddUserDto;
 import accounts.app.user.Dto.UserReadDto;
 import accounts.app.user.entities.User;
 import accounts.app.user.repository.UserRepository;
@@ -27,5 +28,14 @@ public class UserService {
             x.getSurname(), x.getAddress(), x.getPhone_number()));
         } 
         return usersToBeShown;
+    }
+
+    public void addUser(AddUserDto addUserDto){
+        User user = new User();
+        user.setAddress(addUserDto.getAddress());
+        user.setFamily_name(addUserDto.getFamily_name());
+        user.setPhone_number(addUserDto.getPhone_number());
+        user.setSurname(addUserDto.getSurname());
+        userRepository.save(user);
     }
 }

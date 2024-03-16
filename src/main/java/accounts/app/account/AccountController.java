@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import accounts.app.account.Dto.AccountReadDto;
 import accounts.app.account.Dto.AddAccountDto;
 import accounts.app.account.Dto.DeleteAccountDto;
-import accounts.app.account.Entity.Account;
 import accounts.app.account.Repositories.AccountRepository;
 
 @RestController

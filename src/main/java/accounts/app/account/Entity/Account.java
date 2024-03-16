@@ -36,9 +36,9 @@ public class Account {
     private Long account_amount;
     @Column
     private String currency;
-    /*@ManyToOne
+    @ManyToOne
     @JoinColumn(name="user_id")
-    private User user;*/
+    private User user;
 
     public Account(){}
 

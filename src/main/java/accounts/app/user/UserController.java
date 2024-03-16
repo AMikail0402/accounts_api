@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import accounts.app.user.Dto.AddUserDto;
-import accounts.app.user.entities.User;
+import accounts.app.user.Dto.UserReadDto;
 
 @RestController
 @RequestMapping(path = "api/user")
@@ -23,13 +23,13 @@ public class UserController {
         this.userService = userService;
     }
     @GetMapping
-    public List<User> getUsers(){
-        return null;
+    public List<UserReadDto> getUsers(){
+        return userService.findAllUsers();
     }
 
     @PostMapping
     public void addUser(@RequestBody AddUserDto addUserDto){
-        System.out.println(addUserDto.toString());
+        userService.addUser(addUserDto);
     }
 
 }

@@ -10,12 +10,15 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name ="user_profile")
 @Getter
+@Setter
 public class User {
     @Id
     @GeneratedValue( strategy = GenerationType.SEQUENCE)
@@ -28,8 +31,8 @@ public class User {
     private String address;
     @Column
     private String phone_number;
-    /* 
+    
     @Column
-    @OneToMany(mappedBy = "user")
-    private List<Account> accounts;*/
+    @OneToMany(mappedBy = "account_id")
+    private List<Account> accounts;
 }
