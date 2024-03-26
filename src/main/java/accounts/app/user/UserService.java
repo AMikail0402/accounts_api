@@ -36,7 +36,7 @@ public class UserService {
                 accountsToBeShown.add(new AccountReadDto(y.getAccount_id(), y.getAccount_status()
                 , y.getAccount_amount(), y.getCurrency()));
             }
-
+            // Create UserReadDto for each User
             usersToBeShown.add(new UserReadDto(x.getId(), x.getFamily_name(), 
             x.getSurname(), x.getAddress(), x.getPhone_number(),accountsToBeShown));
         } 
@@ -53,7 +53,7 @@ public class UserService {
     }
 
     public void delete(DeleteUserDto deleteUserDto){
-        User userToBeDeleted = userRepository.findUserById(deleteUserDto.user_id());
+        User userToBeDeleted = userRepository.findUserById(deleteUserDto.user_id()).get();
         userRepository.delete(userToBeDeleted);
     }
 }

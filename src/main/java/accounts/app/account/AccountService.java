@@ -37,7 +37,7 @@ public class AccountService {
     }
 
     public void deleteAccountById(DeleteAccountDto account){
-        Account associatedAccount = accountRepository.findAccountById(account.getAccount_id());
+        Account associatedAccount = accountRepository.findAccountById(account.getAccount_id()).get();
         accountRepository.delete(associatedAccount);
     }
 }
