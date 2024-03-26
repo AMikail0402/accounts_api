@@ -10,7 +10,7 @@ services:
       - POSTGRES_USER=admin
       - POSTGRES_DB=datenbank
     volumes: 
-      - accounts_db:/var/lib/postgresql
+      - data:/var/lib/postgresql
   api:
     build: .
     container_name: account-api
@@ -18,6 +18,8 @@ services:
       - "8080:8080"
 
 volumes: 
-    accounts_db:
+    data: 
+      external: true
+      name: accounts_db
        
  

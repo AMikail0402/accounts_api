@@ -6,7 +6,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import accounts.app.account.Dto.AccountReadDto;
+import accounts.app.account.Entity.Account;
 import accounts.app.user.Dto.AddUserDto;
+import accounts.app.user.Dto.DeleteUserDto;
 import accounts.app.user.Dto.UserReadDto;
 import accounts.app.user.entities.User;
 import accounts.app.user.repository.UserRepository;
@@ -24,8 +27,18 @@ public class UserService {
         List<User> users = userRepository.findAll();
         List<UserReadDto> usersToBeShown = new ArrayList<>();
         for(User x : users){
+            System.out.println("ALLE ACCOUNTS"+x.getAccounts().size());
+            // Create AccountReadDto for each User
+            List<Account> userAccounts = x.getAccounts();
+            List<AccountReadDto> accountsToBeShown = new ArrayList();
+
+            for(Account y : userAccounts){
+                accountsToBeShown.add(new AccountReadDto(y.getAccount_id(), y.getAccount_status()
+                , y.getAccount_amount(), y.getCurrency()));
+            }
+
             usersToBeShown.add(new UserReadDto(x.getId(), x.getFamily_name(), 
-            x.getSurname(), x.getAddress(), x.getPhone_number()));
+            x.getSurname(), x.getAddress(), x.getPhone_number(),accountsToBeShown));
         } 
         return usersToBeShown;
     }
@@ -37,5 +50,10 @@ public class UserService {
         user.setPhone_number(addUserDto.getPhone_number());
         user.setSurname(addUserDto.getSurname());
         userRepository.save(user);
+    }
+
+    public void delete(DeleteUserDto deleteUserDto){
+        User userToBeDeleted = userRepository.findUserById(deleteUserDto.user_id());
+        userRepository.delete(userToBeDeleted);
     }
 }

@@ -38,7 +38,7 @@ public class Account {
     @Column
     private String currency;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.REFRESH)
     @JoinColumn(name="user_id")
     private User user;
 

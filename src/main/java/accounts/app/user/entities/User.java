@@ -34,6 +34,6 @@ public class User {
     private String phone_number;
     
     @Column
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
     private List<Account> accounts;
 }
