@@ -5,6 +5,7 @@ import java.util.List;
 import org.hibernate.annotations.Generated;
 
 import accounts.app.account.Entity.Account;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -33,6 +34,6 @@ public class User {
     private String phone_number;
     
     @Column
-    @OneToMany(mappedBy = "account_id")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Account> accounts;
 }

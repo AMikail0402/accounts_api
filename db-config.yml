@@ -9,10 +9,15 @@ services:
       - POSTGRES_PASSWORD=admin
       - POSTGRES_USER=admin
       - POSTGRES_DB=datenbank
+    volumes: 
+      - accounts_db:/var/lib/postgresql
   api:
     build: .
     container_name: account-api
     ports: 
       - "8080:8080"
- 
+
+volumes: 
+    accounts_db:
+       
  

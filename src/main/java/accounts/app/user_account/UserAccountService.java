@@ -27,8 +27,11 @@ public class UserAccountService {
     public void AddAccountToUser(AddAccountUserDto addAccountUserDto){
         User updateUser = userRepository.findUserById(addAccountUserDto.getUser_id());
         List<Account> userAccounts = updateUser.getAccounts();
+
         Account updateAccount = accountRepository.findAccountById(addAccountUserDto.getAccount_id());
+        updateAccount.setUser(updateUser);
         userAccounts.add(updateAccount);
+        System.out.println("Der UpdateAccount"+updateAccount);
         updateUser.setAccounts(userAccounts);
         userRepository.save(updateUser);
     }

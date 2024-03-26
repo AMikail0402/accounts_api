@@ -1,6 +1,7 @@
 package accounts.app.account.Entity;
 
 import accounts.app.user.entities.User;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -36,7 +37,8 @@ public class Account {
     private Long account_amount;
     @Column
     private String currency;
-    @ManyToOne
+
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="user_id")
     private User user;
 
