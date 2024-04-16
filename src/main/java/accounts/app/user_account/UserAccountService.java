@@ -30,7 +30,6 @@ public class UserAccountService {
         Account updateAccount = accountRepository.findAccountById(addAccountUserDto.getAccount_id()).get();
         updateAccount.setUser(updateUser);
         userAccounts.add(updateAccount);
-        System.out.println("Der UpdateAccount"+updateAccount);
         updateUser.setAccounts(userAccounts);
         userRepository.save(updateUser);
     }

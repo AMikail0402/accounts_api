@@ -27,7 +27,6 @@ public class UserService {
         List<User> users = userRepository.findAll();
         List<UserReadDto> usersToBeShown = new ArrayList<>();
         for(User x : users){
-            System.out.println("ALLE ACCOUNTS"+x.getAccounts().size());
             // Create AccountReadDto for each User
             List<Account> userAccounts = x.getAccounts();
             List<AccountReadDto> accountsToBeShown = new ArrayList();
