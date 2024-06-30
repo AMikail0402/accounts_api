@@ -12,7 +12,8 @@ services:
     volumes: 
       - data:/var/lib/postgresql
   api:
-    build: .
+    build: apps/accounts-api
+    env_file: apps/accounts-api/.env
     container_name: account-api
     ports: 
       - "8080:8080"

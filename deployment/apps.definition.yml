@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: banking-project-api
+  labels:
+    app: accounts-api
+spec: 
+    selector:  
+      matchLabels:
+        app: accounts-api
+    template:
+      metadata:
+       labels:
+         app: accounts-api 
+      spec:
+         containers:
+         - name: accounts-api
+           image: localhost:5000/accounts-api:latest
+           ports:
+           - containerPort: 8080
+           envFrom:
+           - configMapRef:
+               name: accounts-api-configmap
+
+ ---
+## write services
