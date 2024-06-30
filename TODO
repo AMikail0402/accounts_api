@@ -1,6 +1,34 @@
-1. Explore Kubectl port-forwarding
+issue:
+   id: 1 
+   heading: Explore Kubectl port-forwarding
+   description:
+   Use kubectl port-forwarding in order to debug the Accounts-Api Endpoints without
+   having to create an ingress that enables network connectivity between the laptop-client
+   and the pod.
+issue:
+   id: 2
+   heading: Write ingress.yml so that services could be reached from outside
+   description:
+   Configure domains in way that allows pods to be reachable from different subdomains
+   depending on the branch that they have been configured in.
 
-2. Write ingress.yml so that services could be reached from outside
-    description:
-    Configure domains in way that allows pods to be reachable from different subdomains
-    depending on the branch that they have been configured in.
+issue:
+   id: 3
+   heading: Use nx to create image and push it to registry
+   description:
+   login first and create docker nx task. Then automate building the image and pushing it to the container registry.
+
+issue:
+   id: 4
+   heading: Create Container Registry
+   description: 
+   Create Docker-Registry-VM with Virtual Box using linux alpine as the underlying operating system.
+   Then install a loadbalancer that forwards requests from port 80 to registry. Then fake a domain name
+   using etc/hosts both on wsl and the laptop
+issue:
+   id: 5
+   heading: Create an SSL-Certificate
+   description:
+   forward requests from port 80 to port 443 and enable the encrypted transit of image-data between
+   the client  and the server
+   
