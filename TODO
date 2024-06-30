@@ -1,4 +1,6 @@
-1. Write ingress.yml so that services could be reached from outside
+1. Explore Kubectl CLI Utility
+
+2. Write ingress.yml so that services could be reached from outside
     description:
     Configure domains in way that allows pods to be reachable from different subdomains
     depending on the branch that they have been configured in.
