@@ -1,4 +1,4 @@
-1. Explore Kubectl CLI Utility
+1. Explore Kubectl port-forwarding
 
 2. Write ingress.yml so that services could be reached from outside
     description:
