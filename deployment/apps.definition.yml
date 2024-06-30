@@ -21,6 +21,3 @@ spec:
            envFrom:
            - configMapRef:
                name: accounts-api-configmap
-
- ---
-## write services

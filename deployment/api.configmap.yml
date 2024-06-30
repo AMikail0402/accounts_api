@@ -3,6 +3,6 @@ kind: ConfigMap
 metadata:
   name: accounts-api-configmap
 data:
-  SPRING_DATASOURCE_URL: jdbc:postgresql://192.168.178.141:5432/datenbank
+  SPRING_DATASOURCE_URL: jdbc:postgresql://accounts-db-postgresql.db:5432/datenbank
   SPRING_DATASOURCE_USERNAME: admin
   SPRING_DATASOURCE_PASSWORD: admin
