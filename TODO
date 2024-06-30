@@ -7,7 +7,7 @@ issue:
    and the pod.
 issue:
    id: 2
-   heading: Write ingress.yml so that services could be reached from outside
+   heading: Write ingress.yml so that services could be reached from the outside
    description:
    Configure domains in way that allows pods to be reachable from different subdomains
    depending on the branch that they have been configured in.
@@ -25,10 +25,12 @@ issue:
    Create Docker-Registry-VM with Virtual Box using linux alpine as the underlying operating system.
    Then install a loadbalancer that forwards requests from port 80 to registry. Then fake a domain name
    using etc/hosts both on wsl and the laptop
+
 issue:
    id: 5
-   heading: Create an SSL-Certificate
+   heading: Enable HTTPS-Transit
    description:
-   forward requests from port 80 to port 443 and enable the encrypted transit of image-data between
+   Create an https-certificate. 
+   Then forward requests from port 80 to port 443 and enable the encrypted transit of image-data between
    the client  and the server
    
