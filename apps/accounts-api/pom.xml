@@ -21,6 +21,25 @@
   <dependencies>
 
     <dependency>
+      <groupId>io.grpc</groupId>
+      <artifactId>grpc-stub</artifactId>
+      <version>1.66.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.grpc</groupId>
+      <artifactId>grpc-protobuf</artifactId>
+      <version>1.66.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.grpc</groupId>
+      <artifactId>grpc-netty</artifactId>
+      <version>1.66.0</version>
+    </dependency>
+
+
+    <dependency>
     <groupId>org.postgresql</groupId>
     <artifactId>postgresql</artifactId>
     <version>42.7.1</version>
@@ -81,6 +100,11 @@
         </plugin>
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
+          <configuration>
+          <additionalClasspathElements>
+            <additionalClasspathElement>accounts_api/apps/accounts-api/src/main/java/accounts/app"</additionalClasspathElement>
+          </additionalClasspathElements>
+        </configuration>
           <version>2.22.1</version>
         </plugin>
         <plugin>
