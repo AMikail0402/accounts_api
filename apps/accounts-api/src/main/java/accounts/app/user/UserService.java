@@ -14,7 +14,7 @@ import accounts.app.user.Dto.UserReadDto;
 import accounts.app.user.entities.User;
 import accounts.app.user.repository.UserRepository;
 
-@Service
+
 public class UserService {
     UserRepository userRepository;
 

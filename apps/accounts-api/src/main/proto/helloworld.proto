@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option java_package = "accounts.grpc.helloworld.protobuff";
+
+// The greeting service definition.
+service Hello{
+  rpc login(LoginRequest) returns (ApiResponse);
+  rpc logout(Empty) returns (ApiResponse);
+}
+
+message LoginRequest{
+    string username = 1;
+    string password = 2;
+}
+
+message ApiResponse{
+    string responsemessage = 1;
+    int32 responseCode = 2;
+}
+
+message Empty{
+}

@@ -8,13 +8,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import accounts.app.user.Dto.AddUserDto;
 import accounts.app.user.Dto.DeleteUserDto;
 import accounts.app.user.Dto.UserReadDto;
 
-@RestController
+
 @RequestMapping(path = "api/user")
 public class UserController {
 
