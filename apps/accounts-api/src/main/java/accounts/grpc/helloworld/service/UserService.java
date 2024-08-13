@@ -1,5 +1,6 @@
 package accounts.grpc.helloworld.service;
 
+import accounts.grpc.helloworld.exception.AuthenticationException;
 import accounts.grpc.helloworld.protobuff.Accounting.ApiResponse;
 import accounts.grpc.helloworld.protobuff.Accounting.Empty;
 import accounts.grpc.helloworld.protobuff.Accounting.LoginRequest;
@@ -23,9 +24,9 @@ public class UserService extends userGrpc.userImplBase {
             response.setResponseCode(200).setResponsemessage("Success");
         }
         else {
-            response.setResponseCode(401).setResponsemessage("Authentifizierungsfehler");
+            throw new AuthenticationException(responseObserver,"Nutzername und Passwort stimmen nicht überein");
         }
-
+        
         responseObserver.onNext(response.build());
         responseObserver.onCompleted();
 
