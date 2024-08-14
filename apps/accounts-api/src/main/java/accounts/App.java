@@ -11,6 +11,7 @@ import accounts.grpc.user.service.UserService;
 
 
 import io.grpc.Server;
+import io.grpc.ServerBuilder;
 import io.grpc.netty.NettyServerBuilder;
 
 
@@ -27,7 +28,7 @@ public class App
     @Bean
     public CommandLineRunner startGrpcServer(UserService userService) {
         return args -> {
-            Server server = NettyServerBuilder.forPort(8081)
+            Server server = ServerBuilder.forPort(8081)
                 .addService(new HelloService())
                 .addService(userService)
                 .build()

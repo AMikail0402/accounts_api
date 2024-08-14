@@ -2,11 +2,11 @@ package accounts.grpc.user.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import accounts.app.account.Entity.Account;
 import accounts.app.account.Repositories.AccountRepository;
@@ -28,23 +28,19 @@ public class UserService extends UserGrpc.UserImplBase{
 
     UserRepository userRepository;
 
-    private final ExecutorService executorService;
-
     AccountRepository accountRepository;
 
     @Autowired
     UserService(UserRepository userRepository,
                 AccountRepository accountRepository){
         this.userRepository = userRepository;
-        this.executorService = Executors.newFixedThreadPool(1);
         this.accountRepository = accountRepository;
     }
 
 
+    @Transactional
     public void getUsers(Empty request,
     StreamObserver<UserList> responseObserver) {
-
-        executorService.submit( () ->{
 
         List<User> users = userRepository.findAll();
 
@@ -54,7 +50,7 @@ public class UserService extends UserGrpc.UserImplBase{
  
         for(User x : users){
             
-            List<Account> userAccounts = accountRepository.findAccountByUserId(x.getId());
+            List<Account> userAccounts = x.getAccounts();
             List<AccountReadDto> accountsToBeShown = new ArrayList<AccountReadDto>();
 
             for(Account y : userAccounts){
@@ -86,7 +82,6 @@ public class UserService extends UserGrpc.UserImplBase{
 
         responseBuilder.onNext(userList).build().onCompleted();
 
-    });
 
 
     }
