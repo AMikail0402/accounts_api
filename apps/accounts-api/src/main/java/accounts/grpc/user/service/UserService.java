@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import accounts.app.account.Entity.Account;
+import accounts.app.account.Repositories.AccountRepository;
 import accounts.app.user.entities.User;
 import accounts.app.user.repository.UserRepository;
 
@@ -19,18 +20,25 @@ import accounts.grpc.user.protobuff.UserOuterClass.UserReadDto;
 import accounts.grpc.util.ResponseBuilder;
 import io.grpc.stub.StreamObserver;
 
+
 @Service
 public class UserService extends UserGrpc.UserImplBase{
 
     UserRepository userRepository;
 
+    AccountRepository accountRepository;
+
     @Autowired
-    UserService(UserRepository userRepository){
+    UserService(UserRepository userRepository,
+                AccountRepository accountRepository){
         this.userRepository = userRepository;
+        this.accountRepository = accountRepository;
     }
-    
+
+
     public void getUsers(Empty request,
     StreamObserver<UserList> responseObserver) {
+        
         List<User> users = userRepository.findAll();
 
         List<UserReadDto> usersToBeShown = new ArrayList<>();
@@ -38,8 +46,8 @@ public class UserService extends UserGrpc.UserImplBase{
         ResponseBuilder<UserList> responseBuilder = new ResponseBuilder<UserList>(responseObserver);
  
         for(User x : users){
-
-            List<Account> userAccounts = x.getAccounts();
+            
+            List<Account> userAccounts = accountRepository.findAccountByUserId(x.getId());
             List<AccountReadDto> accountsToBeShown = new ArrayList<AccountReadDto>();
 
             for(Account y : userAccounts){
@@ -65,7 +73,6 @@ public class UserService extends UserGrpc.UserImplBase{
                            .addAllAccountData(accountsToBeShown)
                            .build()
             );
-
         }
     
         UserList userList = UserList.newBuilder().addAllUserReadData(usersToBeShown).build();

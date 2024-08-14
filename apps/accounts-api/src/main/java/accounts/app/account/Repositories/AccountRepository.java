@@ -1,5 +1,6 @@
 package accounts.app.account.Repositories;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -15,5 +16,8 @@ public interface AccountRepository
 
         @Query("SELECT a FROM Account a WHERE a.account_id = :id")
         Optional<Account> findAccountById(@Param("id") Long id);
+
+        @Query("SELECT a FROM Account a WHERE a.user.id = :id")
+        List<Account> findAccountByUserId(@Param("id") Long id);
 
 }
