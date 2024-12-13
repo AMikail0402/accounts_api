@@ -6,3 +6,14 @@ metadata:
 spec:
   type: ExternalName
   externalName: api-svc-01.main.svc.cluster.local
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: api-svc-02
+  namespace: networking
+spec:
+  type: ExternalName
+  externalName: api-svc-01.main-2.svc.cluster.local

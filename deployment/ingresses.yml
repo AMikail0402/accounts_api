@@ -16,4 +16,14 @@ spec:
                number: 8080
          path: /
          pathType: Prefix
+  - host: test.localhost
+    http:
+       paths:
+       - backend:
+          service:
+            name: api-svc-02
+            port:
+               number: 8080
+         path: /
+         pathType: Prefix
 
