@@ -1,7 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: banking-project-api
+  name: banking-project-api-01
+  namespace: main
   labels:
     app: accounts-api
 spec: 
@@ -17,7 +18,63 @@ spec:
          - name: accounts-api
            image: localhost:5000/accounts-api:latest
            ports:
-           - containerPort: 8081
+           - containerPort: 8080
            envFrom:
            - configMapRef:
                name: accounts-api-configmap
+
+--- 
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-server-01
+  namespace: main
+  labels:
+    app: nginx-server
+spec: 
+    selector:  
+      matchLabels:
+        app: nginx-server
+    template:
+      metadata:
+       labels:
+         app: nginx-server
+      spec:
+         containers:
+         - name: nginx-server
+           image: nginx
+           ports:
+           - containerPort: 80
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: api-svc-01
+  namespace: main
+spec:
+  selector:
+    app: accounts-api 
+  ports:
+   - name: http
+     protocol: TCP
+     port: 80
+     targetPort: 8080
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-svc-01
+  namespace: main
+spec:
+  selector:
+    app: nginx-server
+  ports:
+   - name: http
+     protocol: TCP
+     port: 80
+     targetPort: 80

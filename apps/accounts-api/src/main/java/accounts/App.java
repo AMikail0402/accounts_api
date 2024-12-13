@@ -12,8 +12,6 @@ import accounts.grpc.user.service.UserService;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
-import io.grpc.netty.NettyServerBuilder;
-
 
 @SpringBootApplication
 

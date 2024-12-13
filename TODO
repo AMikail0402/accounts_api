@@ -1,4 +1,10 @@
 issue:
+   id: 0
+   heading: Local Mirroring of environment 
+   description:
+   Mirror k3s environment as accurately as possibly with docker-compose in the local environment 
+
+issue:
    id: 1 
    heading: Explore Kubectl port-forwarding
    description:
