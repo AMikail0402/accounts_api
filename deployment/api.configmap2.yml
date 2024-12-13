@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: accounts-api-configmap
+data:
+  SPRING_DATASOURCE_URL: jdbc:postgresql://accounts-db-2-postgresql.db-2:5432/datenbank
+  SPRING_DATASOURCE_USERNAME: admin
+  SPRING_DATASOURCE_PASSWORD: admin
