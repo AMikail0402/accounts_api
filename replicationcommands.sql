@@ -7,7 +7,7 @@ CREATE SUBSCRIPTION sub_pri2_pri1
 CONNECTION 'dbname=datenbank host=accounts-db-postgresql.db user=postgres password=wHcYhamkn3'
 PUBLICATION pub_pri1 WITH (origin = NONE, copy_data = false);
 
--- set wal level
+-- set wal level, then restart for both nodes
 ALTER SYSTEM SET wal_level = logical;
 
 
