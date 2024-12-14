@@ -15,6 +15,7 @@ spec:
       spec:
          containers:
          - name: accounts-api
+           # image number four for single table configuration
            image: localhost:5000/accounts-api:5
            ports:
            - containerPort: 8080

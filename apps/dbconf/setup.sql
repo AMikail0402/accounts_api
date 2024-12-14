@@ -1,0 +1,3 @@
+CREATE ROLE admin WITH LOGIN PASSWORD 'admin';
+
+CREATE DATABASE datenbank with OWNER admin;

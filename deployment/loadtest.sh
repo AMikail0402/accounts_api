@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for i in {1..200}; do
+for i in {1..50}; do
   curl --request POST \
   --url http://localhost/api/user \
   --header 'Content-Type: application/json' \
