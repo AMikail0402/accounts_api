@@ -15,7 +15,7 @@ spec:
       spec:
          containers:
          - name: accounts-api
-           image: localhost:5000/accounts-api:latest
+           image: localhost:5000/accounts-api:1
            ports:
            - containerPort: 8080
            envFrom:
