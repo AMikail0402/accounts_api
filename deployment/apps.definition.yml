@@ -21,6 +21,13 @@ spec:
            envFrom:
            - configMapRef:
                name: accounts-api-configmap
+           readinessProbe:
+            httpGet:
+             path: "/actuator/health/readiness"
+             port: 8080
+            periodSeconds: 5
+            initialDelaySeconds: 10
+            failureThreshold: 5
 
 ---
 
