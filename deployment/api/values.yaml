@@ -2,13 +2,29 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-accounts-api: 
+accountsApi: 
+  deployment: banking-project-api
   config: accounts-api-configmap
-  readinessProbe:
-    httpGet:
-      path: /
+  appName: accounts-api
+  imageUrl: localhost:5000/accounts-api
+  readiness:
+      method: 'httpGet:'
+      path: /actuator/health/readiness
       port: http
+      periodSeconds: 5
+      initialDelaySeconds: 10
+      failureThreshold: 5
+  svcName: api-svc-01
+  connection:
+    port: 8080
+    protocol: TCP
 
+db: 
+ username: admin
+ password: admin
+ namespace: db # to be set with external vars
+
+version: 6 # to be set with external vars
 
 
 

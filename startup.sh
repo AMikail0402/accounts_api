@@ -1,5 +1,5 @@
 #!/bin/bash
-
+cd apps/accounts-api
 #docker clean up
 docker kill account-api
 docker rm account-api

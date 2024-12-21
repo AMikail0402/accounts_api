@@ -1,3 +1,4 @@
 - Zuerst wurden yml. Dateien erstellt, mit denen der Cluster über 'kubectl' gesteurt wurde
 - Erstellung eines Helm-Charts mittels 'helm create'
 - Parametrisierung der yml-dateien
+- Speicherung der Credentials als Secrets (Steht noch aus ) 

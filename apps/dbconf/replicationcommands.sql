@@ -1,4 +1,7 @@
 -- Publication of db 1
+
+-- password of db 1 ZpcZWZNzMP
+
 CREATE PUBLICATION pub_pri1 FOR ALL TABLES;
 
 -- Subscription for DB 2

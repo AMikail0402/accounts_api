@@ -1,0 +1,1 @@
+helm install  accounts-project ./deployment/api -n main

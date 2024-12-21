@@ -1,0 +1,46 @@
+{{ $root := .Values.accountsApi }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ $root.deployment}}
+  labels:
+    app: {{ $root.appName }}
+spec: 
+    selector:  
+      matchLabels:
+        app: {{ $root.appName }}
+    template:
+      metadata:
+       labels:
+         app: {{ $root.appName }}
+      spec:
+         containers:
+         - name: {{ $root.appName }}
+           image: '{{ $root.imageUrl }}:{{ .Values.version }}'
+           ports:
+           - containerPort: {{ $root.connection.port }}
+           envFrom:
+           - configMapRef:
+               name: {{ $root.config }}
+           readinessProbe:
+            {{ $root.readiness.method }}
+             path: {{ $root.readiness.path }}
+             port: {{ $root.connection.port }}
+            periodSeconds: {{ $root.readiness.periodSeconds}}
+            initialDelaySeconds: {{ $root.readiness.initialDelaySeconds }}
+            failureThreshold: {{ $root.readiness.failureThreshold }}
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ $root.svcName }}
+spec:
+  selector:
+    app: {{ $root.appName}}
+  ports:
+    - protocol: {{ $root.connection.protocol }}
+      port: {{ $root.connection.port }}
+      targetPort: {{ $root.connection.port }}
+
