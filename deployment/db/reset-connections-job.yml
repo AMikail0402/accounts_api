@@ -1,0 +1,48 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: db-reset
+spec:
+  template:
+    spec:
+      volumes:
+      - name: secret-connection-volume
+        secret:
+         secretName: kill-connections-secret
+      initContainers:
+      - name: reset-db
+        image: postgres:latest
+        command: ["psql","-h", "accounts-db-2-postgresql.db-2", "-U","postgres","-d","postgres","-a","-f","/etc/secret-volume/connections/.secret-file" ]
+        env:
+         - name: PGPASSWORD
+           value: "3D8SZZLpOx"
+        volumeMounts:
+        - name: secret-connection-volume
+          readOnly: true
+          mountPath: "/etc/secret-volume/connections"
+      - name: fill-db-with-schema
+        image: postgres:latest
+        command:
+          - /bin/sh
+          - -c
+          - |
+            pg_dump --schema-only -h accounts-db-postgresql.db -U postgres 
+        env:
+         - name: PGPASSWORD
+           value: "GKll0osA93"
+        volumeMounts:
+        - name: secret-connection-volume
+          readOnly: true
+          mountPath: "/etc/secret-volume/connections"
+      containers:
+      - name: job-done
+        image: busybox
+        command: ['sh', '-c', 'echo "job-1 and job-2 completed"']
+      restartPolicy: Never
+  backoffLimit: 4
+
+  # sources
+  # https://kubernetes.io/docs/concepts/configuration/secret/
+  # https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/
+  # https://stackoverflow.com/questions/40713573/how-to-run-containers-sequentially-as-a-kubernetes-job
+  # https://stackoverflow.com/questions/14486241/postgresql-export-the-schema-of-a-database
