@@ -8,7 +8,7 @@ spec:
       volumes:
       - name: secret-connection-volume
         secret:
-         secretName: kill-connections-secret
+         secretName: kill-connections-sql
       initContainers:
       - name: reset-db
         image: postgres:latest
