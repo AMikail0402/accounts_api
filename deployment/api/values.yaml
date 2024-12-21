@@ -19,6 +19,8 @@ accountsApi:
     port: 8080
     protocol: TCP
 
+instance: # to be set with external values 
+
 db: 
  username: admin
  password: admin
