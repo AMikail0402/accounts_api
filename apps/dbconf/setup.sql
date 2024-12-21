@@ -10,3 +10,5 @@ DROP DATABASE datenbank;
 CREATE DATABASE datenbank with OWNER admin;
 
 
+-- sources
+-- https://www.dbvis.com/thetable/how-to-kill-all-connections-to-a-database-in-postgresql/

@@ -1,1 +1,3 @@
-helm install  accounts-project ./deployment/api -n main
+helm install  accounts-project ./deployment/api -n main --set db.namespace=db --set version=6
+
+helm install  accounts-project-2 ./deployment/api -n temp --set db.namespace=db-2 --set version=7

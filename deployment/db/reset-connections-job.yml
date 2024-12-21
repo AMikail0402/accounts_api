@@ -19,14 +19,16 @@ spec:
         volumeMounts:
         - name: secret-connection-volume
           readOnly: true
-          mountPath: "/etc/secret-volume/connections"
+          mountPath: "/etc/secret-volume/connections" 
       - name: fill-db-with-schema
         image: postgres:latest
         command:
           - /bin/sh
           - -c
           - |
-            pg_dump --schema-only -h accounts-db-postgresql.db -U postgres 
+            pg_dump --schema-only -h accounts-db-postgresql.db -U postgres -d datenbank > schema.sql
+            export PGPASSWORD=3D8SZZLpOx
+            psql -h accounts-db-2-postgresql.db-2 -U postgres -d datenbank < schema.sql
         env:
          - name: PGPASSWORD
            value: "GKll0osA93"
@@ -37,7 +39,7 @@ spec:
       containers:
       - name: job-done
         image: busybox
-        command: ['sh', '-c', 'echo "job-1 and job-2 completed"']
+        command: ['sh', '-c', 'echo "database has been reset"']
       restartPolicy: Never
   backoffLimit: 4
 

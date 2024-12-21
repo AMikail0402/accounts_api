@@ -24,9 +24,9 @@ instance: # to be set with external values
 db: 
  username: admin
  password: admin
- namespace: db # to be set with external vars
+ namespace:  # set with external vars
 
-version: 6 # to be set with external vars
+version:  # set with external vars
 
 
 

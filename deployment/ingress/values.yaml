@@ -2,12 +2,7 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-accounts-api: 
-  config: accounts-api-configmap
-  readinessProbe:
-    httpGet:
-      path: /
-      port: http
+ingress: 
 
 
 

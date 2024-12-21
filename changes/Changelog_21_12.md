@@ -2,13 +2,12 @@
 - Erstellung eines Helm-Charts mittels 'helm create'
 - Parametrisierung der yml-dateien
 - Speicherung der Credentials als Secrets (Steht noch aus ) 
-- Erstellung eines jobs (kubernetes docs)
-  - multiple commands https://www.baeldung.com/linux/kubernetes-pass-many-commands
-  - 
+- Erstellung eines Datenbank-Reset-Jobs
+- angepasste Ressourcen-Anforderungen für grey-instanz (Steht noch aus ) 
 
 Controls:
 - Geheimnisse werden als Secrets gespeichert
-- Passwort und Nutzername in .pgpass-datei
+- Passwort und Nutzername in .pgpass-datei (Steht noch aus ) 
 
 Für RQ relevant: 
 - Blue, Green und temp in unterschiedlichen namespaces

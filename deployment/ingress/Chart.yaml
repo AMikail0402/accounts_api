@@ -1,6 +1,6 @@
 apiVersion: v2
-name: api
-description: Helm Chart for automated deployment of the accounts-api
+name: ingress
+description: Helm Chart for networking purposes
 
 # A chart can be either an 'application' or a 'library' chart.
 #
