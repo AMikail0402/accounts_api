@@ -4,6 +4,6 @@ kind: ConfigMap
 metadata:
   name: {{ $root.config }}
 data:
-  SPRING_DATASOURCE_URL: jdbc:postgresql://accounts-{{ .Values.db.namespace }}-postgresql.{{ .Values.db.namespace }}:5432/datenbank
+  SPRING_DATASOURCE_URL: jdbc:postgresql://accounts-{{ .Values.db.namespace }}-postgresql{{ .Values.instance }}.{{ .Values.db.namespace }}{{ .Values.instance }}:5432/datenbank
   SPRING_DATASOURCE_USERNAME: {{ .Values.db.username }}
   SPRING_DATASOURCE_PASSWORD: {{ .Values.db.password }}

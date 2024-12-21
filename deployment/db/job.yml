@@ -1,0 +1,26 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: db-reset
+spec:
+  template:
+    spec:
+      volumes:
+      - name: secret-volume
+        secret:
+         secretName: kill-connections-secret
+      containers:
+      - name: reset-db
+        image: ubuntu:latest
+        command: ["sh", "-c"]
+        args:
+        - |
+          "pwd"
+          "cd etc"
+          "ls"
+        volumeMounts:
+        - name: secret-volume
+          readOnly: true
+          mountPath: "/etc/secret-volume"
+      restartPolicy: Never
+  backoffLimit: 4
