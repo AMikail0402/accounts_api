@@ -1,0 +1,44 @@
+# zuerst wurden namespaces gelabeled
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: restrict-db
+  namespace: db
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: postgresql
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          name: main
+      podSelector:
+        matchLabels:
+          app: accounts-api
+    - namespaceSelector:
+        matchLabels:
+          name: main-2
+      podSelector:
+        matchLabels:
+          app: accounts-api
+  egress:
+  - to:
+    - namespaceSelector:
+        matchLabels:
+          name: main
+      podSelector:
+        matchLabels:
+          app: accounts-api
+    - namespaceSelector:
+        matchLabels:
+          name: main-2
+      podSelector:
+        matchLabels:
+          app: accounts-api
+    ports:
+    - protocol: TCP
+      port: 5432 

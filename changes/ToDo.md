@@ -1,5 +1,9 @@
 - Accounts erstellen für pg
 - Messung Downtime
+- Network-Policies --> In Progress
+  - egress regeln für datenbank
+  - Kommunikation mit Cronjob absichern
+- RBAC Absicherung
 - angepasste Ressourcen-Anforderungen für grey-instanz (Steht noch aus ) 
 - Passwort und Nutzername in .pgpass-datei (Steht noch aus ) 
 - Speicherung der Credentials als Secrets (Steht noch aus ) 

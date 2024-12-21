@@ -69,7 +69,7 @@ helm upgrade networking ./deployment/ingress -n networking --set test=true --set
 sleep 10
 echo "exploratory tests done"
 
-# commmence exploratory-test
+# commence exploratory-test
 # If no end to end tests are being used, the pipeline should be restarted with an option
 
 # stop exposing grey

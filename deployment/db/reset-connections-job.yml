@@ -4,12 +4,15 @@ metadata:
   name: db-reset
 spec:
   template:
+    metadata:
+      labels:
+        app: cron
     spec:
       volumes:
       - name: secret-connection-volume
         secret:
          secretName: kill-connections-sql
-      initContainers:
+      containers:
       - name: reset-db
         image: postgres:latest
         command: ["psql","-h", "accounts-db-2-postgresql.db-2", "-U","postgres","-d","postgres","-a","-f","/etc/secret-volume/connections/.secret-file" ]
@@ -20,26 +23,6 @@ spec:
         - name: secret-connection-volume
           readOnly: true
           mountPath: "/etc/secret-volume/connections" 
-      - name: fill-db-with-schema
-        image: postgres:latest
-        command:
-          - /bin/sh
-          - -c
-          - |
-            pg_dump --schema-only -h accounts-db-postgresql.db -U postgres -d datenbank > schema.sql
-            export PGPASSWORD=3D8SZZLpOx
-            psql -h accounts-db-2-postgresql.db-2 -U postgres -d datenbank < schema.sql
-        env:
-         - name: PGPASSWORD
-           value: "GKll0osA93"
-        volumeMounts:
-        - name: secret-connection-volume
-          readOnly: true
-          mountPath: "/etc/secret-volume/connections"
-      containers:
-      - name: job-done
-        image: busybox
-        command: ['sh', '-c', 'echo "database has been reset"']
       restartPolicy: Never
   backoffLimit: 4
 
@@ -48,3 +31,4 @@ spec:
   # https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/
   # https://stackoverflow.com/questions/40713573/how-to-run-containers-sequentially-as-a-kubernetes-job
   # https://stackoverflow.com/questions/14486241/postgresql-export-the-schema-of-a-database
+  # https://stackoverflow.com/questions/66478086/kubernetes-cronjob-labeling-with-a-network-policy
