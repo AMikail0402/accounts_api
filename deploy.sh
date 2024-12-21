@@ -35,6 +35,7 @@ helm install accounts-project ./deployment/api -n temp --set db.namespace=db-2 -
 
 re='.*\.(.*).svc'
 
+# extract fqdn of active service
 domain=$(kubectl get svc api-svc-01 -o jsonpath='{.spec.externalName}' -n networking)
 
 echo $domain
@@ -75,12 +76,16 @@ echo "exploratory tests done"
 helm upgrade networking ./deployment/ingress -n networking --set test=false --set primaryNameSpace=$primaryNameSpace
 
 echo $secondaryNamespace
+
 # deploy new version to secondaryNamespace
 helm upgrade accounts-project ./deployment/api -n $secondaryNameSpace --set db.namespace=db --set version=$VERSION
 
-# switch traffic to other secondary namespace
+# switch traffic to secondary namespace
 helm upgrade networking ./deployment/ingress -n networking --set test=false --set primaryNameSpace=$secondaryNameSpace
 
+# traffic now points to green 
+# new image has been deployed to secondary namespace
+# former secondary namespace is now primary namespace
 
 # sources
 # bash-case: https://linuxize.com/post/bash-case-statement/
