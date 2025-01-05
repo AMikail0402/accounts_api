@@ -6,7 +6,7 @@ accountsApi:
   deployment: banking-project-api
   config: accounts-api-configmap
   appName: accounts-api
-  imageUrl: localhost:5000/accounts-api
+  imageUrl: localhost/accounts-api
   readiness:
       method: 'httpGet:'
       path: /actuator/health/readiness

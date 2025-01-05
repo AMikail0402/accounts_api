@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: accounts-registry
+  name: accounts-registry
+  namespace: registry
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: accounts-registry
+  template:
+    metadata:
+      labels:
+        app: accounts-registry
+    spec:
+      containers:
+      - name: accounts-registry
+        image: registry
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 5000
+          protocol: TCP
+
+--- 
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: registry-service
+spec:
+  selector:
+    app: accounts-registry
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000
