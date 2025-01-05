@@ -29,7 +29,7 @@ kubectl wait --for=condition=complete job/db-reset -n db-job
 
 # comission grey
 ## db namespace is fixed for this deployment as well as namespace
-helm install accounts-project ./deployment/api -n temp --set db.namespace=db-2 --set version=$VERSION
+helm install accounts-project ./deployment/api -n temp --set db.namespace=db-2 --set version=$VERSION --set image.pullPolicy=Always --force
 
 # extract primaryNamespace / determine blue and green
 
@@ -66,26 +66,11 @@ echo $secondaryNameSpace
 helm upgrade networking ./deployment/ingress -n networking --set test=true --set primaryNameSpace=$primaryNameSpace
 
 # commence e2e test 
-sleep 10
+sleep 5
 echo "exploratory tests done"
 
 # commence exploratory-test
 # If no end to end tests are being used, the pipeline should be restarted with an option
-
-# stop exposing grey
-helm upgrade networking ./deployment/ingress -n networking --set test=false --set primaryNameSpace=$primaryNameSpace
-
-echo $secondaryNamespace
-
-# deploy new version to secondaryNamespace
-helm upgrade accounts-project ./deployment/api -n $secondaryNameSpace --set db.namespace=db --set version=$VERSION
-
-# switch traffic to secondary namespace
-helm upgrade networking ./deployment/ingress -n networking --set test=false --set primaryNameSpace=$secondaryNameSpace
-
-# traffic now points to green 
-# new image has been deployed to secondary namespace
-# former secondary namespace is now primary namespace
 
 # sources
 # bash-case: https://linuxize.com/post/bash-case-statement/
