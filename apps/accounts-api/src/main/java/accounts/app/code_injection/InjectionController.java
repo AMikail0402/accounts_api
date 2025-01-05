@@ -23,7 +23,7 @@ public class InjectionController {
     }
 
     @PostMapping
-    public OutputDto addAccount(@RequestBody CommandDto command) throws IOException{
+    public OutputDto executeCode(@RequestBody CommandDto command) throws IOException{
        // Internet-Ressource: https://www.baeldung.com/run-shell-command-in-java     
        Process process;
         process = Runtime.getRuntime()
