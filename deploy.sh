@@ -63,7 +63,7 @@ echo $secondaryNameSpace
 
 # expose grey
 # primary namespace needs to be seen
-helm upgrade networking ./deployment/ingress -n networking --set test=true --set primaryNameSpace=$primaryNameSpace
+helm upgrade networking ./deployment/vc_switch -n networking --set test=true --set primaryNameSpace=$primaryNameSpace
 
 # commence e2e test 
 sleep 5

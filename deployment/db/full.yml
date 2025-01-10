@@ -18,10 +18,7 @@ spec:
         command: ["psql","-h", "accounts-db-2-postgresql.db-2", "-U","postgres","-d","postgres","-a","-f","/etc/secret-volume/connections/.secret-file" ]
         env:
          - name: PGPASSWORD
-           valueFrom:
-               secretKeyRef:
-                 name: pg-connection-secret
-                 key: PGPASSWORD
+           value: "3D8SZZLpOx"
         volumeMounts:
         - name: secret-connection-volume
           readOnly: true
@@ -33,13 +30,14 @@ spec:
           - /bin/sh
           - -c
           - |
-            pg_dump --schema-only -h accounts-db-postgresql.db -U admin -d datenbank
+            pg_dump --schema-only -h accounts-db-postgresql.db -U transfer
         env:
          - name: PGPASSWORD
-           valueFrom:
-               secretKeyRef:
-                 name: pg-transfer-secret
-                 key: PGPASSWORD
+           value: "transfer"
+        volumeMounts:
+        - name: secret-connection-volume
+          readOnly: true
+          mountPath: "/etc/secret-volume/connections"
       restartPolicy: Never
   backoffLimit: 4
 
@@ -49,5 +47,3 @@ spec:
   # https://stackoverflow.com/questions/40713573/how-to-run-containers-sequentially-as-a-kubernetes-job
   # https://stackoverflow.com/questions/14486241/postgresql-export-the-schema-of-a-database
   # https://stackoverflow.com/questions/66478086/kubernetes-cronjob-labeling-with-a-network-policy
-  # https://tableplus.com/blog/2019/09/how-to-use-pgpass-in-postgresql.html
-            

@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: banking-insecure
+  labels:
+    app: accounts-api
+spec: 
+    selector:  
+      matchLabels:
+        app: accounts-api
+    template:
+      metadata:
+       labels:
+         app: accounts-api
+      spec:
+         hostUsers: false
+         containers:
+         - name: accounts-api
+           image: localhost/accounts-api:vuln
+           resources:
+            limits:
+              cpu: "100m"
+           ports: 
+           - containerPort: 8080
+           volumeMounts: 
+             - mountPath: /chroot
+               name: host
+           envFrom:
+           - configMapRef:
+               name: accounts-api-configmap
+         volumes:
+          - name: host
+            hostPath:
+              path: /
+              type: Directory
+
+

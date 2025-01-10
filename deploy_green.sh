@@ -32,7 +32,7 @@ echo $secondaryNameSpace
 
 
 # stop exposing grey
-helm upgrade networking ./deployment/ingress -n networking --set test=false --set primaryNameSpace=$primaryNameSpace
+helm upgrade networking ./deployment/svc_switch -n networking --set test=false --set primaryNameSpace=$primaryNameSpace
 
 echo $secondaryNamespace
 
@@ -40,7 +40,7 @@ echo $secondaryNamespace
 helm upgrade accounts-project ./deployment/api -n $secondaryNameSpace --set db.namespace=db --set version=$VERSION --install
 
 # switch traffic to secondary namespace
-helm upgrade networking ./deployment/ingress -n networking --set test=false --set primaryNameSpace=$secondaryNameSpace
+helm upgrade networking ./deployment/vc_switch -n networking --set test=false --set primaryNameSpace=$secondaryNameSpace
 
 # traffic now points to green 
 # new image has been deployed to secondary namespace
