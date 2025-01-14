@@ -5,11 +5,11 @@ helm uninstall accounts-project -n temp
 
 source .env
 
-cd apps/accounts-api
+cd ../apps/accounts-api
 
 mvn clean install spring-boot:repackage
 
-dockerUrl=localhost/accounts-api:$VERSION
+dockerUrl=$REGISTRYURL/accounts-api:$VERSION
 
 echo "$dockerUrl"
 

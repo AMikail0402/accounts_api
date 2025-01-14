@@ -10,8 +10,12 @@ metadata:
     client-body-timeout: "600s"
 spec:
   ingressClassName: nginx
+  tls:
+  - hosts:
+    - docker.registry
+    secretName: tls-secret
   rules:
-  - host: registry
+  - host: docker.registry
     http:
        paths:
        - backend:

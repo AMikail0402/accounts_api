@@ -30,6 +30,8 @@ esac
 
 echo $secondaryNameSpace
 
+# uninstall grey
+helm uninstall accounts-project -n temp
 
 # stop exposing grey
 helm upgrade networking ./deployment/svc_switch -n networking --set test=false --set primaryNameSpace=$primaryNameSpace
