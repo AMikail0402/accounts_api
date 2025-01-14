@@ -10,3 +10,4 @@ externalServices:
         svcName: api-svc-01
         nameSpace: temp
         
+hostname: proof-of-concept

@@ -5,7 +5,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: localhost
+  - host: {{ .Values.hostname }}
     http:
        paths:
        - backend:
@@ -16,7 +16,7 @@ spec:
          path: /api
          pathType: Prefix
   {{ if eq .Values.test true }}
-  - host: test.localhost
+  - host: test.{{ .Values.hostname }}
     http:
        paths:
        - backend:

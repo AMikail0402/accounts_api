@@ -1,0 +1,55 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  labels:
+    app: nginx
+spec:
+  containers:
+  - name: nginx
+    image: nginx:latest
+    ports:
+    - containerPort: 80
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+spec:
+  selector:
+    app: nginx
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nginx-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: 1000m
+    proxy-read-timeout: "600s"
+    proxy-send-timeout: "600s"
+    client-body-timeout: "600s"
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - registry
+    secretName: tls-secret
+  rules:
+  - host: registry
+    http:
+       paths:
+       - backend:
+          service:
+            name: nginx-service
+            port:
+               number: 80
+         path: /
+         pathType: Prefix
