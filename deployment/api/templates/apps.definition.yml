@@ -16,7 +16,7 @@ spec:
       spec:
          containers:
          - name: {{ $root.appName }}
-           image: '{{ $root.imageUrl }}:{{ .Values.version }}'
+           image: '{{ .Values.environment.registryUrl }}/{{ $root.appName }}:{{ .Values.version }}'
            ports:
            - containerPort: {{ $root.connection.port }}
            volumeMounts: 
