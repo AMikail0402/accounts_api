@@ -1,0 +1,348 @@
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  1727    0  1727    0     0   1294      0 --:--:--  0:00:01 --:--:--  1296100  1727    0  1727    0     0    735      0 --:--:--  0:00:02 --:--:--   736100  1727    0  1727    0     0    515      0 --:--:--  0:00:03 --:--:--   515100  1727    0  1727    0     0    396      0 --:--:--  0:00:04 --:--:--   396100  1727    0  1727    0     0    321      0 --:--:--  0:00:05 --:--:--   321100  1727    0  1727    0     0    270      0 --:--:--  0:00:06 --:--:--     0100  1727    0  1727    0     0    233      0 --:--:--  0:00:07 --:--:--     0100  1727    0  1727    0     0    205      0 --:--:--  0:00:08 --:--:--     0100  1727    0  1727    0     0    183      0 --:--:--  0:00:09 --:--:--     0100  1727    0  1727    0     0    165      0 --:--:--  0:00:10 --:--:--     0100  1727    0  1727    0     0    150      0 --:--:--  0:00:11 --:--:--     0100  1727    0  1727    0     0    138      0 --:--:--  0:00:12 --:--:--     0100  1727    0  1727    0     0    127      0 --:--:--  0:00:13 --:--:--     0100  1727    0  1727    0     0    119      0 --:--:--  0:00:14 --:--:--     0100  1727    0  1727    0     0    111      0 --:--:--  0:00:15 --:--:--     0100  1727    0  1727    0     0    104      0 --:--:--  0:00:16 --:--:--     0100  1775    0  1775    0     0    106      0 --:--:--  0:00:16 --:--:--    11<!DOCTYPE html>
+<html>
+<head><title>Φορτίο v1.68.0</title>
+  <script src="1.68.0/static/js/Chart.min.js"></script>
+  <script src="1.68.0/static/js/fortio_chart.js"></script>
+  <link rel="icon" href="1.68.0/static/img/favicon.ico"/>
+  <link rel="stylesheet" href="1.68.0/static/css/fortio.css">
+</head>
+<body>
+<a href="https://fortio.org/" target="_blank"><img src="1.68.0/static/img/fortio-logo-gradient-no-bg.svg" alt="Fortio Logo" height="110" align="right" /></a>
+
+<h1>Φορτίο (fortio) v1.68.0</h1>
+<p>Up for 2h51m57.5s (since Wed Jan 22 09:02:27 2025).
+
+<p>testrun_exp_7 https://host.docker.internal/api/transfer
+<div id="running">
+  Running load test... Results pending...
+  <br />
+  <progress id="progressBar" max="100" value="0" style="width: 100%"></progress>
+  <br />
+  <button type="submit" onclick='javascript:fetch("./?stop=Stop&runid=71");'>Interrupt</button>
+</div>
+<script>runTestForDuration( 15 )</script>
+<div class="chart-container" id="cc1" style="position: relative; height:75vh; width:95vw; display:none;">
+  <canvas id="chart1"></canvas>
+</div>
+<div id="update" style="visibility: hidden">
+  <form id="updtForm" action="javascript:updateChart()">
+    <input type="submit" value="Update:" />
+    Time axis min <input type="text" name="xmin" size="5" /> ms,
+    max <input type="text" name="xmax" size="5" /> ms,
+    logarithmic:<input name="xlog" type="checkbox" onclick="updateChart()" />.
+    Count axis min <input type="text" name="ymin" size="5" /> ms,
+    max <input type="text" name="ymax" size="5" /> ms,
+    logarithmic: <input name="ylog" type="checkbox" onclick="updateChart()" />
+  </form>
+</div>
+<pre>
+Starting at 3 qps with 10 thread(s) [gomax 16] for 15s : 4 calls each (total 40)
+Ended after 16.339831804s : 40 calls. qps=2.448
+Sleep times : count 30 avg 4.4305188 +/- 0.01735 min 4.34276086 max 4.439107879 sum 132.915565
+Aggregated Function Time : count 40 avg 0.011443043 +/- 0.01549 min 0.004814032 max 0.101595196 sum 0.4577217
+# range, mid point, percentile, count
+&gt;= 0.00481403 &lt;= 0.005 , 0.00490702 , 7.50, 3
+&gt; 0.005 &lt;= 0.006 , 0.0055 , 52.50, 18
+&gt; 0.006 &lt;= 0.007 , 0.0065 , 67.50, 6
+&gt; 0.01 &lt;= 0.012 , 0.011 , 70.00, 1
+&gt; 0.012 &lt;= 0.014 , 0.013 , 72.50, 1
+&gt; 0.016 &lt;= 0.018 , 0.017 , 85.00, 5
+&gt; 0.018 &lt;= 0.02 , 0.019 , 92.50, 3
+&gt; 0.02 &lt;= 0.025 , 0.0225 , 97.50, 2
+&gt; 0.1 &lt;= 0.101595 , 0.100798 , 100.00, 1
+# target 50% 0.00594444
+# target 75% 0.0164
+# target 90% 0.0193333
+# target 99% 0.100957
+# target 99.9% 0.101531
+Error cases : no data
+# Socket and IP used for each connection:
+[0]   2 socket used, resolved to 192.168.127.254:443, connection timing : count 2 avg 0.0030129565 +/- 7.344e-05 min 0.002939517 max 0.003086396 sum 0.006025913
+[1]   2 socket used, resolved to 192.168.127.254:443, connection timing : count 2 avg 0.003265384 +/- 1.235e-05 min 0.003253038 max 0.00327773 sum 0.006530768
+[2]   2 socket used, resolved to 192.168.127.254:443, connection timing : count 2 avg 0.003110732 +/- 0.0001557 min 0.002954991 max 0.003266473 sum 0.006221464
+[3]   2 socket used, resolved to 192.168.127.254:443, connection timing : count 2 avg 0.0038412845 +/- 0.0001665 min 0.003674809 max 0.00400776 sum 0.007682569
+[4]   2 socket used, resolved to 192.168.127.254:443, connection timing : count 2 avg 0.0033787665 +/- 0.0003061 min 0.003072635 max 0.003684898 sum 0.006757533
+[5]   2 socket used, resolved to 192.168.127.254:443, connection timing : count 2 avg 0.003290669 +/- 0.0004315 min 0.0028592 max 0.003722138 sum 0.006581338
+[6]   2 socket used, resolved to 192.168.127.254:443, connection timing : count 2 avg 0.003300508 +/- 0.0001934 min 0.003107076 max 0.00349394 sum 0.006601016
+[7]   2 socket used, resolved to 192.168.127.254:443, connection timing : count 2 avg 0.0035130685 +/- 2.242e-05 min 0.003490653 max 0.003535484 sum 0.007026137
+[8]   2 socket used, resolved to 192.168.127.254:443, connection timing : count 2 avg 0.0032660345 +/- 0.0004847 min 0.002781352 max 0.003750717 sum 0.006532069
+[9]   2 socket used, resolved to 192.168.127.254:443, connection timing : count 2 avg 0.0037768795 +/- 0.000135 min 0.003641921 max 0.003911838 sum 0.007553759
+Connection time histogram (s) : count 20 avg 0.0033756283 +/- 0.0003555 min 0.002781352 max 0.00400776 sum 0.067512566
+# range, mid point, percentile, count
+&gt;= 0.00278135 &lt;= 0.003 , 0.00289068 , 20.00, 4
+&gt; 0.003 &lt;= 0.0035 , 0.00325 , 60.00, 8
+&gt; 0.0035 &lt;= 0.004 , 0.00375 , 95.00, 7
+&gt; 0.004 &lt;= 0.00400776 , 0.00400388 , 100.00, 1
+# target 50% 0.003375
+# target 75% 0.00371429
+# target 90% 0.00392857
+# target 99% 0.00400621
+# target 99.9% 0.0040076
+Sockets used: 20 (for perfect keepalive, would be 10)
+Uniform: true, Jitter: false, Catchup allowed: false
+IP addresses distribution:
+192.168.127.254:443: 20
+Code 200 : 40 (100.0 %)
+Response Header Sizes : count 40 avg 0 +/- 0 min 0 max 0 sum 0
+Response Body/Total Sizes : count 40 avg 19 +/- 0 min 19 max 19 sum 760
+Saved result to <a href='data/2025-01-22-120410_71_testrun_exp_7.json'>data/2025-01-22-120410_71_testrun_exp_7.json</a> (<a href='browse?url=2025-01-22-120410_71_testrun_exp_7.json' target='_new'>graph link</a>)
+All done 40 calls 11.443 ms avg, 2.4 qps
+</pre>
+<script>
+var res = {
+  "RunType": "HTTP",
+  "Labels": "testrun_exp_7",
+  "StartTime": "2025-01-22T12:04:11.079141328Z",
+  "RequestedQPS": "3",
+  "RequestedDuration": "15s",
+  "ActualQPS": 2.4480056147339275,
+  "ActualDuration": 16339831804,
+  "NumThreads": 10,
+  "Version": "1.68.0",
+  "DurationHistogram": {
+    "Count": 40,
+    "Min": 0.004814032,
+    "Max": 0.101595196,
+    "Sum": 0.45772170000000006,
+    "Avg": 0.011443042500000002,
+    "StdDev": 0.015493406650155531,
+    "Data": [
+      {
+        "Start": 0.004814032,
+        "End": 0.005,
+        "Percent": 7.5,
+        "Count": 3
+      },
+      {
+        "Start": 0.005,
+        "End": 0.006,
+        "Percent": 52.5,
+        "Count": 18
+      },
+      {
+        "Start": 0.006,
+        "End": 0.007,
+        "Percent": 67.5,
+        "Count": 6
+      },
+      {
+        "Start": 0.01,
+        "End": 0.012,
+        "Percent": 70,
+        "Count": 1
+      },
+      {
+        "Start": 0.012,
+        "End": 0.014,
+        "Percent": 72.5,
+        "Count": 1
+      },
+      {
+        "Start": 0.016,
+        "End": 0.018000000000000002,
+        "Percent": 85,
+        "Count": 5
+      },
+      {
+        "Start": 0.018000000000000002,
+        "End": 0.02,
+        "Percent": 92.5,
+        "Count": 3
+      },
+      {
+        "Start": 0.02,
+        "End": 0.025,
+        "Percent": 97.5,
+        "Count": 2
+      },
+      {
+        "Start": 0.1,
+        "End": 0.101595196,
+        "Percent": 100,
+        "Count": 1
+      }
+    ],
+    "Percentiles": [
+      {
+        "Percentile": 50,
+        "Value": 0.005944444444444445
+      },
+      {
+        "Percentile": 75,
+        "Value": 0.0164
+      },
+      {
+        "Percentile": 90,
+        "Value": 0.019333333333333334
+      },
+      {
+        "Percentile": 99,
+        "Value": 0.10095711760000001
+      },
+      {
+        "Percentile": 99.9,
+        "Value": 0.10153138816
+      }
+    ]
+  },
+  "ErrorsDurationHistogram": {
+    "Count": 0,
+    "Min": 0,
+    "Max": 0,
+    "Sum": 0,
+    "Avg": 0,
+    "StdDev": 0,
+    "Data": null
+  },
+  "Exactly": 0,
+  "Jitter": false,
+  "Uniform": true,
+  "NoCatchUp": true,
+  "RunID": 71,
+  "AccessLoggerInfo": "",
+  "ID": "2025-01-22-120410_71_testrun_exp_7",
+  "RetCodes": {
+    "200": 40
+  },
+  "IPCountMap": {
+    "192.168.127.254:443": 20
+  },
+  "Insecure": true,
+  "MTLS": false,
+  "CACert": "",
+  "Cert": "",
+  "Key": "",
+  "UnixDomainSocket": "",
+  "URL": "https://host.docker.internal/api/transfer",
+  "NumConnections": 1,
+  "Compression": false,
+  "DisableFastClient": true,
+  "HTTP10": false,
+  "H2": false,
+  "DisableKeepAlive": false,
+  "AllowHalfClose": false,
+  "FollowRedirects": false,
+  "Resolve": "",
+  "HTTPReqTimeOut": 750000000,
+  "UserCredentials": "",
+  "ContentType": "",
+  "Payload": "",
+  "MethodOverride": "",
+  "LogErrors": true,
+  "SequentialWarmup": false,
+  "ConnReuseRange": [
+    0,
+    0
+  ],
+  "NoResolveEachConn": false,
+  "Offset": 0,
+  "Resolution": 0.0001,
+  "Sizes100  9929    0  9929    0     0    595      0 --:--:--  0:00:16 --:--:--  2580": {
+    "Count": 40,
+    "Min": 19,
+    "Max": 19,
+    "Sum": 760,
+    "Avg": 19,
+    "StdDev": 0,
+    "Data": [
+      {
+        "Start": 19,
+        "End": 19,
+        "Percent": 100,
+        "Count": 40
+      }
+    ]
+  },
+  "HeaderSizes": {
+    "Count": 40,
+    "Min": 0,
+    "Max": 0,
+    "Sum": 0,
+    "Avg": 0,
+    "StdDev": 0,
+    "Data": [
+      {
+        "Start": 0,
+        "End": 0,
+        "Percent": 100,
+        "Count": 40
+      }
+    ]
+  },
+  "Sockets": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+  ],
+  "SocketCount": 20,
+  "ConnectionStats": {
+    "Count": 20,
+    "Min": 0.002781352,
+    "Max": 0.00400776,
+    "Sum": 0.067512566,
+    "Avg": 0.0033756283,
+    "StdDev": 0.0003555152537032868,
+    "Data": [
+      {
+        "Start": 0.002781352,
+        "End": 0.003,
+        "Percent": 20,
+        "Count": 4
+      },
+      {
+        "Start": 0.003,
+        "End": 0.0035,
+        "Percent": 60,
+        "Count": 8
+      },
+      {
+        "Start": 0.0035,
+        "End": 0.004,
+        "Percent": 95,
+        "Count": 7
+      },
+      {
+        "Start": 0.004,
+        "End": 0.00400776,
+        "Percent": 100,
+        "Count": 1
+      }
+    ],
+    "Percentiles": [
+      {
+        "Percentile": 50,
+        "Value": 0.003375
+      },
+      {
+        "Percentile": 75,
+        "Value": 0.0037142857142857142
+      },
+      {
+        "Percentile": 90,
+        "Value": 0.003928571428571429
+      },
+      {
+        "Percentile": 99,
+        "Value": 0.004006208
+      },
+      {
+        "Percentile": 99.9,
+        "Value": 0.0040076048
+      }
+    ]
+  },
+  "AbortOn": 0
+}
+var data = fortioResultToJsChartData(res)
+showChart(data)
+</script><p>Go to <a href='./'>Top</a>.</p></body></html>
+

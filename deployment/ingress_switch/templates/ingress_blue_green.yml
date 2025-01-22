@@ -1,0 +1,31 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: api-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: {{ .Values.hostname }}
+    http:
+       paths:
+       - backend:
+          service:
+            name: api-svc-{{ .Values.primaryNameSpace }}
+            port:
+               number: 8080
+         path: /api
+         pathType: Prefix
+  {{ if eq .Values.test true }}
+  - host: test.{{ .Values.hostname }}
+    http:
+       paths:
+       - backend:
+          service:
+            name: api-svc-temp
+            port:
+               number: 8080
+         path: /api
+         pathType: Prefix
+   {{ end }}
+
+

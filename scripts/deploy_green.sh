@@ -34,15 +34,23 @@ echo $secondaryNameSpace
 helm uninstall accounts-project -n temp
 
 # stop exposing grey
-helm upgrade networking ./deployment/svc_switch -n networking --set test=false --set primaryNameSpace=$primaryNameSpace
+helm upgrade networking ./deployment/svc_switch -n networking 
+\ --set test=false 
+\ --set primaryNameSpace=$primaryNameSpace
+\ --set hostname=$HOSTNAME
 
 echo $secondaryNamespace
 
 # deploy new version to secondaryNamespace
-helm upgrade accounts-project ./deployment/api -n $secondaryNameSpace --set db.namespace=db --set version=$VERSION --install
+helm upgrade accounts-project ./deployment/api -n $secondaryNameSpace 
+\ --set db.namespace=db 
+\ --set version=$VERSION --install
 
 # switch traffic to secondary namespace
-helm upgrade networking ./deployment/vc_switch -n networking --set test=false --set primaryNameSpace=$secondaryNameSpace
+helm upgrade networking ./deployment/vc_switch -n networking 
+\ --set test=false 
+\ --set primaryNameSpace=$secondaryNameSpace
+\ --set hostname=$HOSTNAME
 
 # traffic now points to green 
 # new image has been deployed to secondary namespace
