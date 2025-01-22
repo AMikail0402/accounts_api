@@ -29,10 +29,10 @@ kubectl wait --for=condition=complete job/db-reset -n db-job
 
 # comission grey
 ## db namespace is fixed for this deployment as well as namespace
-helm install accounts-project ./deployment/api -n temp 
-\ --set db.namespace=db-2 
-\ --set version=$VERSION 
-\ --set image.pullPolicy=Always --force
+helm install accounts-project ./deployment/api -n temp \
+--set db.namespace=db-2 \
+--set version=$VERSION \
+--set image.pullPolicy=Always --force
 
 # extract primaryNamespace / determine blue and green
 
@@ -66,10 +66,10 @@ echo $secondaryNameSpace
 
 # expose grey
 # primary namespace needs to be seen
-helm upgrade networking ./deployment/svc_switch -n networking
-\ --set test=true 
-\ --set primaryNameSpace=$primaryNameSpace
-\ --set hostname=$HOSTNAME
+helm upgrade networking ./deployment/svc_switch -n networking \
+--set test=true \
+--set primaryNameSpace=$primaryNameSpace \
+--set hostname=$HOSTNAME
 
 # commence e2e test 
 sleep 5

@@ -15,4 +15,7 @@ echo $domain
 primaryNameSpace=${BASH_REMATCH[1]}
 
 # stop exposing grey
-helm upgrade networking ./deployment/svc_switch -n networking --set test=false --set primaryNameSpace=$primaryNameSpace
+helm upgrade networking ./deployment/svc_switch -n networking \
+--set test=false \
+--set hostname=$HOSTNAME \
+--set primaryNameSpace=$primaryNameSpace

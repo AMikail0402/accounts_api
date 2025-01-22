@@ -4,7 +4,7 @@ echo "starting ingress-switch research"
 
 re='.*\-(main.*)'
 
-for i in $(seq 1 20);
+for i in $(seq 1 50);
 do 
 
 # extract fqdn of active service
