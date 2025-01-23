@@ -20,7 +20,7 @@ import proof.da.http.FetchFiles;
 @Service
 public class DowntimeService {
 
-    static String nameRegex =  "((std|svc|ing).*\\_\\d)\\.json";
+    static String nameRegex =  "((std|svc|ing).*\\_\\d*)\\.json";
     static String fortUrl;
     static {
         if(System.getenv("FORT_URL") == null){

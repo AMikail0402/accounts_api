@@ -1,0 +1,19 @@
+std-results: 
+{
+	"runname": "std_bb7540a8",
+	 "medianMilli": "0.0"
+}
+
+{
+	"outputMessage": "Median der Ausfallzeiten beträgt: 1.693406"
+}
+ingress findings:
+
+{
+	"runname": "ing_e957e1f4",
+	 "medianMilli": "0.0"
+}
+
+{
+	"outputMessage": "Median der Ausfallzeiten beträgt: 15.227010499999999"
+}
