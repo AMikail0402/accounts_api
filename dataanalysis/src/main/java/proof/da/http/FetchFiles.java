@@ -8,8 +8,17 @@ import okhttp3.Response;
 
 public class FetchFiles {
     static OkHttpClient client = new OkHttpClient();
+    static String fortUrl;
     // Später env
-    static String fortUrl = "http://localhost";
+    static {
+        if(System.getenv("FORT_URL") == null){
+          fortUrl = "http://localhost";
+        }
+        else {
+            fortUrl = System.getenv("FORT_URL");
+        }
+    }
+    
     
     public static String fechTsv() throws IOException{
         Request request = new Request.Builder()
