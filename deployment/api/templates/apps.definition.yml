@@ -19,9 +19,10 @@ spec:
            image: '{{ .Values.environment.registryUrl }}/{{ $root.appName }}:{{ .Values.version }}'
            ports:
            - containerPort: {{ $root.connection.port }}
-           volumeMounts: 
-             - mountPath: /chroot
-               name: host
+           resources: 
+             limits:
+               cpu: "500m" 
+               memory: "500Mi" 
            envFrom:
            - configMapRef:
                name: {{ $root.config }}
