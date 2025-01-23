@@ -1,0 +1,7 @@
+{{ $root := .Values.daApi }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ $root.config }}
+data:
+  FORT_URL: 'http://fortio-service.fortio:8080'

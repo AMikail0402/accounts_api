@@ -21,7 +21,16 @@ import proof.da.http.FetchFiles;
 public class DowntimeService {
 
     static String nameRegex =  "((std|svc|ing).*\\_\\d)\\.json";
-
+    static String fortUrl;
+    static {
+        if(System.getenv("FORT_URL") == null){
+          fortUrl = "http://localhost";
+        }
+        else {
+            fortUrl = System.getenv("FORT_URL");
+        }
+    }
+    
 
     public OutputDto getMedian(String runName ,Double medianMilli){
         ArrayList<String> downloadLinks = new ArrayList<String>();
@@ -80,7 +89,7 @@ public class DowntimeService {
             String link = row[0]; 
             
             if(link.contains(runName)){
-                downloadLinks.add(link);
+                downloadLinks.add(link.replace("http://localhost", fortUrl));
             }
             
         }

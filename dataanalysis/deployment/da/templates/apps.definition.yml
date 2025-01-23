@@ -1,0 +1,75 @@
+{{ $root := .Values.daApi }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ $root.deployment}}
+  labels:
+    app: {{ $root.appName }}
+spec: 
+    selector:  
+      matchLabels:
+        app: {{ $root.appName }}
+    template:
+      metadata:
+       labels:
+         app: {{ $root.appName }}
+      spec:
+         containers:
+         - name: {{ $root.appName }}
+           image: '{{ .Values.environment.registryUrl }}/{{ $root.appName }}:{{ .Values.version }}'
+           ports:
+           - containerPort: {{ $root.connection.port }}
+           resources: 
+             limits:
+               cpu: "500m" 
+               memory: "500Mi" 
+           envFrom:
+           - configMapRef:
+               name: {{ $root.config }}
+           readinessProbe:
+            {{ $root.readiness.method }}
+             path: {{ $root.readiness.path }}
+             port: {{ $root.connection.port }}
+            periodSeconds: {{ $root.readiness.periodSeconds}}
+            initialDelaySeconds: {{ $root.readiness.initialDelaySeconds }}
+            failureThreshold: {{ $root.readiness.failureThreshold }}
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ $root.svcName }}
+spec:
+  selector:
+    app: {{ $root.appName}}
+  ports:
+    - protocol: {{ $root.connection.protocol }}
+      port: {{ $root.connection.port }}
+      targetPort: {{ $root.connection.port }}
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: da-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: 1000m
+    proxy-read-timeout: "600s"
+    proxy-send-timeout: "600s"
+    client-body-timeout: "600s"
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: localhost
+    http:
+       paths:
+       - backend:
+          service:
+            name: {{ $root.svcName }}
+            port:
+               number: {{ $root.connection.port }}
+         path: /da
+         pathType: Prefix
+

@@ -1,0 +1,30 @@
+# Default values for api.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+daApi: 
+  deployment: da-deployment
+  config: da-configmap
+  appName: da-api
+  readiness:
+      method: 'httpGet:'
+      path: /actuator/health/readiness
+      port: http
+      periodSeconds: 5
+      initialDelaySeconds: 10
+      failureThreshold: 5
+  svcName: da-svc-01
+  connection:
+    port: 8080
+    protocol: TCP
+
+
+instance: # to be set with external values 
+
+environment:
+  registryUrl: # to be set with external vars
+
+version:  # set with external vars
+
+
+
