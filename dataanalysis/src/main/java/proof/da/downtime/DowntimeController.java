@@ -10,7 +10,7 @@ import proof.da.downtime.dto.InputDto;
 import proof.da.downtime.dto.OutputDto;
 
 @RestController
-@RequestMapping(path = "da/median")
+@RequestMapping(path = "da")
 public class DowntimeController {
     
    DowntimeService downtimeService;
@@ -20,9 +20,14 @@ public class DowntimeController {
         this.downtimeService = downtimeService;
     }
 
-    @GetMapping
+    @GetMapping(path = "median")
     public OutputDto getMedianDowntime(@RequestBody InputDto InputDto){
         return downtimeService.getMedian(InputDto.runname(),InputDto.medianMilli());
+    }
+
+    @GetMapping(path = "average")
+    public OutputDto getAverageDowntime(@RequestBody InputDto InputDto){
+        return downtimeService.getAverage(InputDto.runname(),InputDto.medianMilli());
     }
 
 }

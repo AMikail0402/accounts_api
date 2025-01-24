@@ -20,7 +20,7 @@ import proof.da.http.FetchFiles;
 @Service
 public class DowntimeService {
 
-    static String nameRegex =  "((std|svc|ing).*\\_\\d*)\\.json";
+    static String nameRegex =  "((?:std|svc|ing).*\\_(\\d*))\\.json";
     static String fortUrl;
     static {
         if(System.getenv("FORT_URL") == null){
@@ -30,6 +30,20 @@ public class DowntimeService {
             fortUrl = System.getenv("FORT_URL");
         }
     }
+
+    public OutputDto getAverage(String runName ,Double medianMilli){
+        ArrayList<String> downloadLinks = new ArrayList<String>();
+        
+        try {
+            setDownloadLinks(downloadLinks,runName);
+            return calculateResult(downloadLinks, medianMilli,"average");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        return null;
+        
+    }
     
 
     public OutputDto getMedian(String runName ,Double medianMilli){
@@ -37,8 +51,7 @@ public class DowntimeService {
         
         try {
             setDownloadLinks(downloadLinks,runName);
-            String dt =  String.valueOf(getMedianDowntime(downloadLinks, medianMilli));
-            return new OutputDto("Median der Ausfallzeiten beträgt: "+dt);
+            return calculateResult(downloadLinks, medianMilli,"median");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -47,10 +60,11 @@ public class DowntimeService {
         
     }
 
-    public static Double getMedianDowntime(ArrayList<String> downloadLinks, Double medianMilli) throws JSONException, IOException{
+    public OutputDto calculateResult(ArrayList<String> downloadLinks, Double medianMilli,String operation) throws JSONException, IOException{
         Pattern pattern = Pattern.compile(nameRegex);
         ArrayList<Double> downTimes = new ArrayList<Double>();
-        HashMap<String, Double> testRunDownTimes = new HashMap<String, Double>();
+        ArrayList<Integer> testRuns = new ArrayList<Integer>();
+        HashMap<Integer, Double> testRunDownTimes = new HashMap<Integer, Double>();
 
         for(String x : downloadLinks){
             JSONObject result = new JSONObject(FetchFiles.fechJson(x));
@@ -58,18 +72,47 @@ public class DowntimeService {
             Double downTime = maxMilli-medianMilli;
             Matcher matcher = pattern.matcher(x);
             matcher.find();
-            testRunDownTimes.put(matcher.group(1), downTime);
+            String testrun = matcher.group(2);
+            testRunDownTimes.put(Integer.parseInt(testrun), downTime);
+            testRuns.add(Integer.parseInt(testrun));
             downTimes.add(downTime);
-           } 
+        } 
 
         Collections.sort(downTimes);
+        Collections.sort(testRuns);
         int size = downTimes.size();
 
-        if(downTimes.size() % 2 == 0 ){
-            return (downTimes.get(size/2) + downTimes.get((size/2) - 1))/2;
-        }
+        if(operation.equals("median")){
+            if(downTimes.size() % 2 == 0 ){
+                Double dt =  (downTimes.get(size/2) + downTimes.get((size/2) - 1))/2;
+                return new OutputDto("Median der Ausfallzeiten beträgt: "+dt,returnCoordinates(testRunDownTimes, testRuns));
+            }
 
-        return downTimes.get(size/2);
+            Double dt = downTimes.get(size/2);
+            return new OutputDto("Median der Ausfallzeiten beträgt: "+dt,returnCoordinates(testRunDownTimes,testRuns));
+        }
+        else if (operation.equals("average")){
+
+            return new OutputDto("Durchschnitt der Ausfallzeiten beträgt: "+calculateAverage(downTimes)
+            ,returnCoordinates(testRunDownTimes,testRuns));
+        }
+        return null; 
+    }
+
+    private Double calculateAverage(ArrayList<Double> downTimes ){
+            Double sum = 0.0;
+            for(Double dt : downTimes){
+                sum+=dt;
+            }
+            return sum/downTimes.size();
+    }
+
+    private String returnCoordinates(HashMap<Integer, Double> testRunDownTimes, ArrayList<Integer> testRuns){
+            StringBuilder coords = new StringBuilder();
+            for(int i : testRuns){
+                  coords.append("("+i+","+testRunDownTimes.get(i)+")"+"\s");
+            } 
+            return coords.toString();
     }
 
     private void setDownloadLinks(ArrayList<String> downloadLinks, String runName) throws IOException{
@@ -90,8 +133,7 @@ public class DowntimeService {
             
             if(link.contains(runName)){
                 downloadLinks.add(link.replace("http://localhost", fortUrl));
-            }
-            
+            }   
         }
 
         parser.stopParsing();
