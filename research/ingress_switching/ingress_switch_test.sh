@@ -13,7 +13,7 @@ median=2.200
 
 echo $runname
 
-for i in $(seq 1 50);
+for i in $(seq 1 10);
 do 
 
 # extract fqdn of active service
@@ -41,10 +41,10 @@ esac
 echo $secondaryNameSpace
 touch ./ingress_logs/log_run_$i.json
 
-curl --url "http://localhost/fortio/?labels=lab_${runname}_${i}&url=https%3A%2F%2Fprototype%2Fapi%2Ftransfer&qps=10&t=10s&n=&c=4&log-errors=on&connection-reuse-range-min=&connection-reuse-range-max=&connection-reuse-range-value=&uniform=on&nocatchup=on&p=50%2C+75%2C+90%2C+99%2C+99.9&r=0.0001&X=&H=&payload=&runner=http%2Ftcp%2Fudp&https-insecure=on&resolve=&grpc-ping-delay=0&healthservice=&save=on&timeout=750ms&load=Start" > ./ingress_logs/log_run_$i.json 2>&1 &
+curl --url "http://localhost/fortio/?labels=lab_${runname}_${i}&url=https%3A%2F%2Fprototype%2Fapi%2Ftransfer&qps=10&t=5s&n=&c=4&log-errors=on&connection-reuse-range-min=&connection-reuse-range-max=&connection-reuse-range-value=&uniform=on&nocatchup=on&p=50%2C+75%2C+90%2C+99%2C+99.9&r=0.0001&X=&H=&payload=&runner=http%2Ftcp%2Fudp&https-insecure=on&resolve=&grpc-ping-delay=0&healthservice=&save=on&timeout=750ms&load=Start" > ./ingress_logs/log_run_$i.json 2>&1 &
 
 
-sleep 3
+sleep 1
 
 helm upgrade networking ../../deployment/ingress_switch \
 -n networking \
@@ -52,7 +52,7 @@ helm upgrade networking ../../deployment/ingress_switch \
 --set primaryNameSpace=$secondaryNameSpace \
 --set hostname=prototype
 
-sleep 15
+sleep 7
 
 echo "Run number ${i}"
 done

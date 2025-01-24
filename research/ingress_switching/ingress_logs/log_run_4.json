@@ -1,6 +1,6 @@
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  1723    0  1723    0     0   1414      0 --:--:--  0:00:01 --:--:--  1415100  1723    0  1723    0     0    772      0 --:--:--  0:00:02 --:--:--   773100  1723    0  1723    0     0    533      0 --:--:--  0:00:03 --:--:--   533100  1723    0  1723    0     0    406      0 --:--:--  0:00:04 --:--:--   406100  1723    0  1723    0     0    328      0 --:--:--  0:00:05 --:--:--   328100  1723    0  1723    0     0    275      0 --:--:--  0:00:06 --:--:--     0100  1723    0  1723    0     0    237      0 --:--:--  0:00:07 --:--:--     0100  1723    0  1723    0     0    208      0 --:--:--  0:00:08 --:--:--     0100  1723    0  1723    0     0    186      0 --:--:--  0:00:09 --:--:--     0100  1723    0  1723    0     0    167      0 --:--:--  0:00:10 --:--:--     0<!DOCTYPE html>
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  1719    0  1719    0     0   1418      0 --:--:--  0:00:01 --:--:--  1420100  1719    0  1719    0     0    774      0 --:--:--  0:00:02 --:--:--   775100  1719    0  1719    0     0    533      0 --:--:--  0:00:03 --:--:--   533100  1719    0  1719    0     0    406      0 --:--:--  0:00:04 --:--:--   407100  2245    0  2245    0     0    437      0 --:--:--  0:00:05 --:--:--   437<!DOCTYPE html>
 <html>
 <head><title>Φορτίο v1.68.0</title>
   <script src="1.68.0/static/js/Chart.min.js"></script>
@@ -12,17 +12,17 @@
 <a href="https://fortio.org/" target="_blank"><img src="1.68.0/static/img/fortio-logo-gradient-no-bg.svg" alt="Fortio Logo" height="110" align="right" /></a>
 
 <h1>Φορτίο (fortio) v1.68.0</h1>
-<p>Up for 5h40m21.1s (since Thu Jan 23 10:40:11 2025).
+<p>Up for 1h50m5.4s (since Fri Jan 24 07:48:54 2025).
 
-<p>lab_ing_e957e1f4_4 https://prototype/api/transfer
+<p>lab_ing_d7abde22_4 https://prototype/api/transfer
 <div id="running">
   Running load test... Results pending...
   <br />
   <progress id="progressBar" max="100" value="0" style="width: 100%"></progress>
   <br />
-  <button type="submit" onclick='javascript:fetch("./?stop=Stop&runid=82");'>Interrupt</button>
+  <button type="submit" onclick='javascript:fetch("./?stop=Stop&runid=39");'>Interrupt</button>
 </div>
-<script>runTestForDuration( 10 )</script>
+<script>runTestForDuration( 5 )</script>
 <div class="chart-container" id="cc1" style="position: relative; height:75vh; width:95vw; display:none;">
   <canvas id="chart1"></canvas>
 </div>
@@ -38,193 +38,122 @@
   </form>
 </div>
 <pre>
-Starting at 10 qps with 4 thread(s) [gomax 16] for 10s : 25 calls each (total 100)
-Ended after 10.303428167s : 100 calls. qps=9.7055
-Sleep times : count 96 avg 0.41058435 +/- 0.01129 min 0.3492976 max 0.415164072 sum 39.416098
-Aggregated Function Time : count 100 avg 0.0052948041 +/- 0.01107 min 0.001350866 max 0.06699334 sum 0.529480406
+Starting at 10 qps with 4 thread(s) [gomax 16] for 5s : 12 calls each (total 48)
+Ended after 5.104394952s : 48 calls. qps=9.4037
+Sleep times : count 44 avg 0.42845705 +/- 0.01144 min 0.382488687 max 0.434332644 sum 18.85211
+Aggregated Function Time : count 48 avg 0.0069611221 +/- 0.01106 min 0.001871394 max 0.053294198 sum 0.334133862
 # range, mid point, percentile, count
-&gt;= 0.00135087 &lt;= 0.0014 , 0.00137543 , 1.00, 1
-&gt; 0.0014 &lt;= 0.0016 , 0.0015 , 4.00, 3
-&gt; 0.0016 &lt;= 0.0018 , 0.0017 , 20.00, 16
-&gt; 0.0018 &lt;= 0.002 , 0.0019 , 34.00, 14
-&gt; 0.002 &lt;= 0.0025 , 0.00225 , 48.00, 14
-&gt; 0.0025 &lt;= 0.003 , 0.00275 , 65.00, 17
-&gt; 0.003 &lt;= 0.0035 , 0.00325 , 71.00, 6
-&gt; 0.0035 &lt;= 0.004 , 0.00375 , 72.00, 1
-&gt; 0.004 &lt;= 0.0045 , 0.00425 , 79.00, 7
-&gt; 0.0045 &lt;= 0.005 , 0.00475 , 87.00, 8
-&gt; 0.005 &lt;= 0.006 , 0.0055 , 92.00, 5
-&gt; 0.006 &lt;= 0.007 , 0.0065 , 93.00, 1
-&gt; 0.009 &lt;= 0.01 , 0.0095 , 94.00, 1
-&gt; 0.012 &lt;= 0.014 , 0.013 , 95.00, 1
-&gt; 0.02 &lt;= 0.025 , 0.0225 , 96.00, 1
-&gt; 0.035 &lt;= 0.04 , 0.0375 , 97.00, 1
-&gt; 0.05 &lt;= 0.06 , 0.055 , 98.00, 1
-&gt; 0.06 &lt;= 0.0669933 , 0.0634967 , 100.00, 2
-# target 50% 0.00255882
-# target 75% 0.00421429
-# target 90% 0.0056
-# target 99% 0.0634967
-# target 99.9% 0.0666437
-Error cases : count 1 avg 0.036717609 +/- 0 min 0.036717609 max 0.036717609 sum 0.036717609
-# range, mid point, percentile, count
-&gt;= 0.0367176 &lt;= 0.0367176 , 0.0367176 , 100.00, 1
-# target 50% 0.0367176
-# target 75% 0.0367176
-# target 90% 0.0367176
-# target 99% 0.0367176
-# target 99.9% 0.0367176
+&gt;= 0.00187139 &lt;= 0.002 , 0.0019357 , 4.17, 2
+&gt; 0.002 &lt;= 0.0025 , 0.00225 , 8.33, 2
+&gt; 0.0025 &lt;= 0.003 , 0.00275 , 56.25, 23
+&gt; 0.003 &lt;= 0.0035 , 0.00325 , 79.17, 11
+&gt; 0.0035 &lt;= 0.004 , 0.00375 , 81.25, 1
+&gt; 0.01 &lt;= 0.012 , 0.011 , 89.58, 4
+&gt; 0.02 &lt;= 0.025 , 0.0225 , 93.75, 2
+&gt; 0.025 &lt;= 0.03 , 0.0275 , 95.83, 1
+&gt; 0.05 &lt;= 0.0532942 , 0.0516471 , 100.00, 2
+# target 50% 0.00293478
+# target 75% 0.00340909
+# target 90% 0.0205
+# target 99% 0.0525036
+# target 99.9% 0.0532151
+Error cases : no data
 # Socket and IP used for each connection:
-[0]   2 socket used, resolved to 192.168.127.2:443, connection timing : count 2 avg 0.008282238 +/- 0.0017 min 0.00658217 max 0.009982306 sum 0.016564476
-[1]   2 socket used, resolved to 192.168.127.2:443, connection timing : count 2 avg 0.0078004855 +/- 0.0008591 min 0.006941402 max 0.008659569 sum 0.015600971
-[2]   2 socket used, resolved to 192.168.127.2:443, connection timing : count 2 avg 0.021702303 +/- 0.01298 min 0.008718206 max 0.0346864 sum 0.043404606
-[3]   2 socket used, resolved to 192.168.127.2:443, connection timing : count 2 avg 0.006405635 +/- 0.0001566 min 0.006249062 max 0.006562208 sum 0.01281127
-Connection time histogram (s) : count 8 avg 0.011047665 +/- 0.009021 min 0.006249062 max 0.0346864 sum 0.088381323
+[0]   2 socket used, resolved to 192.168.127.2:443, connection timing : count 2 avg 0.0074264275 +/- 0.0005781 min 0.006848325 max 0.00800453 sum 0.014852855
+[1]   2 socket used, resolved to 192.168.127.2:443, connection timing : count 2 avg 0.0091991185 +/- 0.00219 min 0.007008939 max 0.011389298 sum 0.018398237
+[2]   2 socket used, resolved to 192.168.127.2:443, connection timing : count 2 avg 0.007189322 +/- 0.0006794 min 0.006509932 max 0.007868712 sum 0.014378644
+[3]   2 socket used, resolved to 192.168.127.2:443, connection timing : count 2 avg 0.007309205 +/- 0.0006913 min 0.006617928 max 0.008000482 sum 0.01461841
+Connection time histogram (s) : count 8 avg 0.0077810182 +/- 0.001482 min 0.006509932 max 0.011389298 sum 0.062248146
 # range, mid point, percentile, count
-&gt;= 0.00624906 &lt;= 0.007 , 0.00662453 , 50.00, 4
-&gt; 0.008 &lt;= 0.009 , 0.0085 , 75.00, 2
-&gt; 0.009 &lt;= 0.01 , 0.0095 , 87.50, 1
-&gt; 0.03 &lt;= 0.0346864 , 0.0323432 , 100.00, 1
-# target 50% 0.007
-# target 75% 0.009
-# target 90% 0.0309373
-# target 99% 0.0343115
-# target 99.9% 0.0346489
+&gt;= 0.00650993 &lt;= 0.007 , 0.00675497 , 37.50, 3
+&gt; 0.007 &lt;= 0.008 , 0.0075 , 62.50, 2
+&gt; 0.008 &lt;= 0.009 , 0.0085 , 87.50, 2
+&gt; 0.01 &lt;= 0.0113893 , 0.0106946 , 100.00, 1
+# target 50% 0.0075
+# target 75% 0.0085
+# target 90% 0.0102779
+# target 99% 0.0112782
+# target 99.9% 0.0113782
 Sockets used: 8 (for perfect keepalive, would be 4)
 Uniform: true, Jitter: false, Catchup allowed: false
 IP addresses distribution:
 192.168.127.2:443: 8
-Code 200 : 99 (99.0 %)
-Code 503 : 1 (1.0 %)
-Response Header Sizes : count 100 avg 199.98 +/- 20.1 min 0 max 202 sum 19998
-Response Body/Total Sizes : count 100 avg 222.88 +/- 18.71 min 221 max 409 sum 22288
-Saved result to <a href='data/2025-01-23-162032_82_lab_ing_e957e1f4_4.json'>data/2025-01-23-162032_82_lab_ing_e957e1f4_4.json</a> (<a href='browse?url=2025-01-23-162032_82_lab_ing_e957e1f4_4.json' target='_new'>graph link</a>)
-All done 100 calls 5.295 ms avg, 9.7 qps
+Code 200 : 48 (100.0 %)
+Response Header Sizes : count 48 avg 201.89583 +/- 0.7141 min 197 max 202 sum 9691
+Response Body/Total Sizes : count 48 avg 220.89583 +/- 0.7141 min 216 max 221 sum 10603
+Saved result to <a href='data/2025-01-24-093854_39_lab_ing_d7abde22_4.json'>data/2025-01-24-093854_39_lab_ing_d7abde22_4.json</a> (<a href='browse?url=2025-01-24-093854_39_lab_ing_d7abde22_4.json' target='_new'>graph link</a>)
+All done 48 calls 6.961 ms avg, 9.4 qps
 </pre>
 <script>
 var res = {
   "RunType": "HTTP",
-  "Labels": "lab_ing_e957e1f4_4",
-  "StartTime": "2025-01-23T16:20:32.633920438Z",
+  "Labels": "lab_ing_d7abde22_4",
+  "StartTime": "2025-01-24T09:38:54.204774971Z",
   "RequestedQPS": "10",
-  "RequestedDuration": "10s",
-  "ActualQPS": 9.705507563034384,
-  "ActualDuration": 10303428167,
+  "RequestedDuration": "5s",
+  "ActualQPS": 9.403661051187404,
+  "ActualDuration": 5104394952,
   "NumThreads": 4,
   "Version": "1.68.0",
   "DurationHistogram": {
-    "Count": 100,
-    "Min": 0.001350866,
-    "Max": 0.06699334,
-    "Sum": 0.529480406,
-    "Avg": 0.00529480406,
-    "StdDev": 0.011067629350220654,
+    "Count": 48,
+    "Min": 0.001871394,
+    "Max": 0.053294198,
+    "Sum": 0.33413386199999995,
+    "Avg": 0.006961122124999999,
+    "StdDev": 0.01105543876940856,
     "Data": [
       {
-        "Start": 0.001350866,
-        "End": 0.0014,
-        "Percent": 1,
-        "Count": 1
-      },
-      {
-        "Start": 0.0014,
-        "End": 0.0016,
-        "Percent": 4,
-        "Count": 3
-      },
-      {
-        "Start": 0.0016,
-        "End": 0.0018000000000000002,
-        "Percent": 20,
-        "Count": 16
-      },
-      {
-        "Start": 0.0018000000000000002,
+        "Start": 0.001871394,
         "End": 0.002,
-        "Percent": 34,
-        "Count": 14
+        "Percent": 4.166666666666667,
+        "Count": 2
       },
       {
         "Start": 0.002,
         "End": 0.0025,
-        "Percent": 48,
-        "Count": 14
+        "Percent": 8.333333333333334,
+        "Count": 2
       },
       {
         "Start": 0.0025,
         "End": 0.003,
-        "Percent": 65,
-        "Count": 17
+        "Percent": 56.25,
+        "Count": 23
       },
       {
         "Start": 0.003,
         "End": 0.0035,
-        "Percent": 71,
-        "Count": 6
+        "Percent": 79.16666666666667,
+        "Count": 11
       },
       {
         "Start": 0.0035,
         "End": 0.004,
-        "Percent": 72,
+        "Percent": 81.25,
         "Count": 1
       },
       {
-        "Start": 0.004,
-        "End": 0.0045000000000000005,
-        "Percent": 79,
-        "Count": 7
-      },
-      {
-        "Start": 0.0045000000000000005,
-        "End": 0.005,
-        "Percent": 87,
-        "Count": 8
-      },
-      {
-        "Start": 0.005,
-        "End": 0.006,
-        "Percent": 92,
-        "Count": 5
-      },
-      {
-        "Start": 0.006,
-        "End": 0.007,
-        "Percent": 93,
-        "Count": 1
-      },
-      {
-        "Start": 0.009000000000000001,
-        "End": 0.01,
-        "Percent": 94,
-        "Count": 1
-      },
-      {
-        "Start": 0.012,
-        "End": 0.014,
-        "Percent": 95,
-        "Count": 1
+        "Start": 0.01,
+        "End": 0.012,
+        "Percent": 89.58333333333333,
+        "Count": 4
       },
       {
         "Start": 0.02,
         "End": 0.025,
-        "Percent": 96,
-        "Count": 1
+        "Percent": 93.75,
+        "Count": 2
       },
       {
-        "Start": 0.035,
-        "End": 0.04,
-        "Percent": 97,
+        "Start": 0.025,
+        "End": 0.030000000000000002,
+        "Percent": 95.83333333333333,
         "Count": 1
       },
       {
         "Start": 0.05,
-        "End": 0.060000000000000005,
-        "Percent": 98,
-        "Count": 1
-      },
-      {
-        "Start": 0.060000000000000005,
-        "End": 0.06699334,
+        "End": 0.053294198,
         "Percent": 100,
         "Count": 2
       }
@@ -232,74 +161,44 @@ var res = {
     "Percentiles": [
       {
         "Percentile": 50,
-        "Value": 0.002558823529411765
+        "Value": 0.0029347826086956524
       },
       {
         "Percentile": 75,
-        "Value": 0.004214285714285715
+        "Value": 0.003409090909090909
       },
       {
         "Percentile": 90,
-        "Value": 0.0056
+        "Value": 0.020500000000000004
       },
       {
         "Percentile": 99,
-        "Value": 0.06349667
+        "Value": 0.05250359048
       },
       {
         "Percentile": 99.9,
-        "Value": 0.06664367300000001
+        "Value": 0.053215137248000005
       }
     ]
   },
   "ErrorsDurationHistogram": {
-    "Count": 1,
-    "Min": 0.036717609,
-    "Max": 0.036717609,
-    "Sum": 0.036717609,
-    "Avg": 0.036717609,
+    "Count": 0,
+    "Min": 0,
+    "Max": 0,
+    "Sum": 0,
+    "Avg": 0,
     "StdDev": 0,
-    "Data": [
-      {
-        "Start": 0.036717609,
-        "End": 0.036717609,
-        "Percent": 100,
-        "Count": 1
-   100 11489    0 11489    0     0   1111      0 --:--:--  0:00:10 --:--:--  2388   }
-    ],
-    "Percentiles": [
-      {
-        "Percentile": 50,
-        "Value": 0.036717609
-      },
-      {
-        "Percentile": 75,
-        "Value": 0.036717609
-      },
-      {
-        "Percentile": 90,
-        "Value": 0.036717609
-      },
-      {
-        "Percentile": 99,
-        "Value": 0.036717609
-      },
-      {
-        "Percentile": 99.9,
-        "Value": 0.036717609
-      }
-    ]
+    "Data": null
   },
   "Exactly": 0,
   "Jitter": false,
   "Uniform": true,
   "NoCatchUp": true,
-  "RunID": 82,
+  "RunID": 39,
   "AccessLoggerInfo": "",
-  "ID": "2025-01-23-162032_82_lab_ing_e957e1f4_4",
+  "ID": "2025-01-24-093854_39_lab_ing_d7abde22_4",
   "RetCodes": {
-    "200": 99,
-    "503": 1
+    "200": 48
   },
   "IPCountMap": {
     "192.168.127.2:443": 8
@@ -335,46 +234,40 @@ var res = {
   "Offset": 0,
   "Resolution": 0.0001,
   "Sizes": {
-    "Count": 100,
-    "Min": 221,
-    "Max": 409,
-    "Sum": 22288,
-    "Avg": 222.88,
-    "StdDev": 18.705763817604346,
+    "Count": 48,
+    "Min": 216,
+    "Max": 221,
+    "Sum": 10603,
+    "Avg": 220.89583333333334,
+    "StdDev": 0.7141306875395113,
     "Data": [
       {
-        "Start": 221,
-        "End": 300,
-        "Percent": 99,
-        "Count": 99
-      },
-      {
-        "Start": 400,
-        "End": 409,
+        "Start": 216,
+        "End": 221,
         "Percent": 100,
-        "Count": 1
+        "Count": 48
       }
     ]
   },
   "HeaderSizes": {
-    "Count": 100,
-    "Min": 0,
+    "Count": 48,
+    "Min": 197,
     "Max": 202,
-    "Sum": 19998,
-    "Avg": 199.98,
-    "StdDev": 20.098746229553715,
+    "Sum": 9691,
+    "Avg": 201.89583333333334,
+    "StdDev": 0.7141306875429075,
     "Data": [
       {
-        "Start": 0,
-        "End": 0,
-        "Percent": 1,
+        "Start": 197,
+        "End": 200,
+        "Percent": 2.0833333333333335,
         "Count": 1
       },
       {
         "Start": 200,
         "End": 202,
         "Percent": 100,
-        "Count": 99
+        "Count": 47
       }
     ]
   },
@@ -387,33 +280,33 @@ var res = {
   "SocketCount": 8,
   "ConnectionStats": {
     "Count": 8,
-    "Min": 0.006249062,
-    "Max": 0.0346864,
-    "Sum": 0.088381323,
-    "Avg": 0.011047665375,
-    "StdDev": 0.009020823968793357,
+    "Min": 0.006509932,
+    "Max": 0.011389298,
+    "Sum": 0.06224814599999999,
+    "Avg": 0100  9257    0  9257    0     0   1802      0 --:--:--  0:00:05 --:--:--  1920.007781018249999999,
+    "StdDev": 0.001481551426691868,
     "Data": [
       {
-        "Start": 0.006249062,
+        "Start": 0.006509932,
         "End": 0.007,
-        "Percent": 50,
-        "Count": 4
+        "Percent": 37.5,
+        "Count": 3
+      },
+      {
+        "Start": 0.007,
+        "End": 0.008,
+        "Percent": 62.5,
+        "Count": 2
       },
       {
         "Start": 0.008,
         "End": 0.009000000000000001,
-        "Percent": 75,
+        "Percent": 87.5,
         "Count": 2
       },
       {
-        "Start": 0.009000000000000001,
-        "End": 0.01,
-        "Percent": 87.5,
-        "Count": 1
-      },
-      {
-        "Start": 0.030000000000000002,
-        "End": 0.0346864,
+        "Start": 0.01,
+        "End": 0.011389298,
         "Percent": 100,
         "Count": 1
       }
@@ -421,23 +314,23 @@ var res = {
     "Percentiles": [
       {
         "Percentile": 50,
-        "Value": 0.007
+        "Value": 0.0075
       },
       {
         "Percentile": 75,
-        "Value": 0.009000000000000001
+        "Value": 0.0085
       },
       {
         "Percentile": 90,
-        "Value": 0.03093728
+        "Value": 0.0102778596
       },
       {
         "Percentile": 99,
-        "Value": 0.034311488
+        "Value": 0.011278154160000001
       },
       {
         "Percentile": 99.9,
-        "Value": 0.0346489088
+        "Value": 0.011378183616000001
       }
     ]
   },

@@ -9,7 +9,7 @@ runname=std_$uuid
 median=2.200
 
 echo $runname
-for i in $(seq 1 50);
+for i in $(seq 1 25);
 do 
 
 touch ./standard_logs/log_run_$i.json
@@ -20,10 +20,10 @@ sleep 15
 echo "Run number ${i}"
 done
 
-curl --request GET \
-  --url http://localhost/da/median \
-  --header 'Content-Type: application/json' \
-  --header 'User-Agent: insomnia/2023.5.8' \
-  --data "{\"runname\": \"${runname}\", \"medianMilli\": \"${median}\"}"
+#curl --request GET \
+#  --url http://localhost/da/median \
+#  --header 'Content-Type: application/json' \
+#  --header 'User-Agent: insomnia/2023.5.8' \
+#  --data "{\"runname\": \"${runname}\", \"medianMilli\": \"${median}\"}"
 
 date
