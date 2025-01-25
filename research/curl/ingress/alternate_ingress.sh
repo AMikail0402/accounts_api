@@ -29,7 +29,10 @@ case $primaryNameSpace in
     ;;
 esac
 
-helm upgrade networking ../../deployment/ingress_switch \
+echo "${iterator}.ter switch"
+date +'%Y-%m-%dT%H:%M:%S%3N'
+
+time helm upgrade networking ../../../deployment/ingress_switch \
 -n networking \
 --set test=false \
 --set primaryNameSpace=$secondaryNameSpace \

@@ -1,0 +1,44 @@
+api-svc-main-2
+0.ter switch
+2025-01-25T20:46:18007
+Release "networking" has been upgraded. Happy Helming!
+NAME: networking
+LAST DEPLOYED: Sat Jan 25 20:46:21 2025
+NAMESPACE: networking
+STATUS: deployed
+REVISION: 467
+TEST SUITE: None
+
+real    0m3.838s
+user    0m0.000s
+sys     0m0.000s
+1.ter switch
+api-svc-main
+1.ter switch
+2025-01-25T20:46:30058
+Release "networking" has been upgraded. Happy Helming!
+NAME: networking
+LAST DEPLOYED: Sat Jan 25 20:46:33 2025
+NAMESPACE: networking
+STATUS: deployed
+REVISION: 468
+TEST SUITE: None
+
+real    0m3.768s
+user    0m0.000s
+sys     0m0.000s
+2.ter switch
+api-svc-main-2
+2.ter switch
+2025-01-25T20:46:41992
+Release "networking" has been upgraded. Happy Helming!
+NAME: networking
+LAST DEPLOYED: Sat Jan 25 20:46:44 2025
+NAMESPACE: networking
+STATUS: deployed
+REVISION: 469
+TEST SUITE: None
+
+real    0m3.021s
+user    0m0.000s
+sys     0m0.000s

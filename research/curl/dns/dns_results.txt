@@ -1,0 +1,9 @@
+coords: 
+
+median-response-time:  ms 
+
+median time between requests: ms 
+
+switch_request_coords:
+
+Average -->  ms  ( ms over median)

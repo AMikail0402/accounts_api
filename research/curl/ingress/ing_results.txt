@@ -1,0 +1,12 @@
+coords: 
+
+median-response-time:  8.915 ms 
+
+median time between requests: 63 ms 
+
+switch_request_coords:
+(79.746,9.421)
+(91.685,10.633)
+(102.914,24.51)
+
+Average -->  14.855ms  ( 5.940 ms over median)
