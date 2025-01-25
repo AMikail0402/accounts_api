@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -24,8 +25,13 @@ public class CurlService {
 
 
     public MedianDto getMedian(List<TimeDto> list){
+        System.out.println("IN METHODE");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ssSSS");
+
+        ArrayList<Double> differences = new ArrayList<>();
         ArrayList<Double> medList = new ArrayList<Double>();
         int i = 1;
+        Long beforeMilli = 0L;
         for(TimeDto tDto : list ){
             if(i ==1){
                     i++;
@@ -33,19 +39,39 @@ public class CurlService {
             }
             Double time = Double.parseDouble(tDto.time_total().replace("s", ""))*1000;
             medList.add(time);
+
+            // calculating difference
+            LocalDateTime elemTime = LocalDateTime.parse(tDto.sent_time(), formatter);
+            String chSeconds = Long.toString(elemTime.toInstant(ZoneOffset.UTC).toEpochMilli()-beforeMilli);
+            Double dSeconds = Double.parseDouble(chSeconds)/1000;
+
+            differences.add(dSeconds);
+            
+            beforeMilli = elemTime.toInstant(ZoneOffset.UTC).toEpochMilli();
+            //
+
          }
          
-         Collections.sort(medList);
+         return new MedianDto(
+            "Die tendenzielle Latenz liegt bei: "+calcMedian(medList)+"ms",
+            "Der tendenzielle Unterschied in der Absendezeit liegt bei: "+calcMedian(differences)*1000+"ms"
+        );
 
-         int size = medList.size();
-         
-         if(size % 2 == 0 ){
-                Double dt =  (medList.get(size/2) + medList.get((size/2) - 1))/2;
-                return new MedianDto("Median der Latenzen beträgt: "+dt);
-            }
+    }
 
-            Double dt = medList.get(size/2);
-            return new MedianDto("Median der Latenzen beträgt: "+dt);
+
+    private Double calcMedian(List<Double> list){
+        
+        Collections.sort(list);
+
+        int size = list.size();
+
+        // Calculate Median 
+        if(size % 2 == 0 ){
+           return (list.get(size /2) + list.get((size /2) - 1))/2;
+        }
+        
+        return list.get(size /2);
 
     }
 

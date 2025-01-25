@@ -1,0 +1,19 @@
+coords: 
+
+median-response-time:  21.943 ms 
+
+median time between requests: 149.0ms
+
+switch_request_coords:
+% Switch 1
+(2.386,48.881) 
+% Switch 2
+(21.344,20.114) 
+% Switch 3
+(40.281,21.01) --> Median 21.01 ms
+% Switch 4
+(59.152,24.461)
+% Switch 5
+(68.588,20.285)
+
+Average --> 26.934 ms (4.991 ms over median)
