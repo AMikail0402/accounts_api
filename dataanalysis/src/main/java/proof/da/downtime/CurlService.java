@@ -39,9 +39,12 @@ public class CurlService {
             }
             Double time = Double.parseDouble(tDto.time_total().replace("s", ""))*1000;
             medList.add(time);
-
+            // 9.441
+            // 8.758)
             // calculating difference
             LocalDateTime elemTime = LocalDateTime.parse(tDto.sent_time(), formatter);
+            System.out.println(time);
+
             String chSeconds = Long.toString(elemTime.toInstant(ZoneOffset.UTC).toEpochMilli()-beforeMilli);
             Double dSeconds = Double.parseDouble(chSeconds)/1000;
 
@@ -54,10 +57,27 @@ public class CurlService {
          
          return new MedianDto(
             "Die tendenzielle Latenz liegt bei: "+calcMedian(medList)+"ms",
-            "Der tendenzielle Unterschied in der Absendezeit liegt bei: "+calcMedian(differences)*1000+"ms"
+            "Der tendenzielle Unterschied in der Absendezeit liegt bei: "+calcMedian(differences)*1000+"ms",
+            "Die durchschnittliche Antwortzeit liegt bei: "+calcAverage(medList)
         );
 
     }
+
+    
+    private Double calcAverage(List<Double> list){
+        
+      Collections.sort(list);
+
+      Double sum = 0.0;
+
+      for(Double d : list){
+        sum += d;
+      }
+        
+      return sum/list.size();
+
+    }
+
 
 
     private Double calcMedian(List<Double> list){
@@ -93,8 +113,19 @@ public class CurlService {
             LocalDateTime elemTime = LocalDateTime.parse(tDto.sent_time(), formatter);
             String chSeconds = Long.toString(elemTime.toInstant(ZoneOffset.UTC).toEpochMilli()-initMillis);
             Double dSeconds = Double.parseDouble(chSeconds)/1000;
-            //
 
+            //
+            if(Math.round(time * 1000.0) / 1000.0 == 9.441 ){
+                System.out.println("chSeconds"+chSeconds+"\n"
+                +"dSeconds"+dSeconds+"\n"
+                + "elemTime"+elemTime);
+            }
+            if(Math.round(time * 1000.0) / 1000.0 == 8.758 ){
+                System.out.println("chSeconds"+chSeconds+"\n"
+                +"dSeconds"+dSeconds+"\n"
+                + "elemTime"+elemTime);
+            }
+            
             graph.append("("+dSeconds+","+Math.round(time * 1000.0) / 1000.0+")");
             i++;
          }
