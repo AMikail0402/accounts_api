@@ -1,0 +1,56 @@
+api-svc-01.main-2.svc.cluster.local
+1.ter switch
+2025-01-25T20:32:46939
+Release "networking" has been upgraded. Happy Helming!
+NAME: networking
+LAST DEPLOYED: Sat Jan 25 20:32:48 2025
+NAMESPACE: networking
+STATUS: deployed
+REVISION: 460
+TEST SUITE: None
+
+real    0m1.740s
+user    0m0.000s
+sys     0m0.000s
+api-svc-01.main.svc.cluster.local
+2.ter switch
+2025-01-25T20:32:56870
+Release "networking" has been upgraded. Happy Helming!
+NAME: networking
+LAST DEPLOYED: Sat Jan 25 20:32:57 2025
+NAMESPACE: networking
+STATUS: deployed
+REVISION: 461
+TEST SUITE: None
+
+real    0m1.114s
+user    0m0.000s
+sys     0m0.000s
+api-svc-01.main-2.svc.cluster.local
+3.ter switch
+2025-01-25T20:33:06149
+Release "networking" has been upgraded. Happy Helming!
+NAME: networking
+LAST DEPLOYED: Sat Jan 25 20:33:06 2025
+NAMESPACE: networking
+STATUS: deployed
+REVISION: 462
+TEST SUITE: None
+
+real    0m1.055s
+user    0m0.000s
+sys     0m0.015s
+api-svc-01.main.svc.cluster.local
+4.ter switch
+2025-01-25T20:33:15377
+Release "networking" has been upgraded. Happy Helming!
+NAME: networking
+LAST DEPLOYED: Sat Jan 25 20:33:16 2025
+NAMESPACE: networking
+STATUS: deployed
+REVISION: 463
+TEST SUITE: None
+
+real    0m1.138s
+user    0m0.000s
+sys     0m0.000s

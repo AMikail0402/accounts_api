@@ -1,0 +1,114 @@
+I0125 13:57:53.568119       7 controller.go:193] "Configuration changes detected, backend reload required"
+I0125 13:57:53.646385       7 controller.go:213] "Backend successfully reloaded"
+I0125 13:57:53.646837       7 event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-5bdc4f464b-f5mv5", UID:"94f304dc-51e4-4f5f-92de-77fc1eb2dd73", APIVersion:"v1", ResourceVersion:"138473", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
+I0125 15:12:48.070550       7 controller.go:193] "Configuration changes detected, backend reload required"
+I0125 15:12:48.186798       7 controller.go:213] "Backend successfully reloaded"
+I0125 15:12:48.187301       7 event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-5bdc4f464b-f5mv5", UID:"94f304dc-51e4-4f5f-92de-77fc1eb2dd73", APIVersion:"v1", ResourceVersion:"138473", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
+I0125 15:12:52.479293       7 controller.go:193] "Configuration changes detected, backend reload required"
+I0125 15:12:52.559387       7 controller.go:213] "Backend successfully reloaded"
+I0125 15:12:52.559884       7 event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-5bdc4f464b-f5mv5", UID:"94f304dc-51e4-4f5f-92de-77fc1eb2dd73", APIVersion:"v1", ResourceVersion:"138473", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
+I0125 15:12:56.955089       7 controller.go:193] "Configuration changes detected, backend reload required"
+I0125 15:12:57.035167       7 controller.go:213] "Backend successfully reloaded"
+I0125 15:12:57.035576       7 event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-5bdc4f464b-f5mv5", UID:"94f304dc-51e4-4f5f-92de-77fc1eb2dd73", APIVersion:"v1", ResourceVersion:"138473", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
+I0125 15:13:01.454433       7 controller.go:193] "Configuration changes detected, backend reload required"
+I0125 15:13:01.537608       7 controller.go:213] "Backend successfully reloaded"
+I0125 15:13:01.538041       7 event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-5bdc4f464b-f5mv5", UID:"94f304dc-51e4-4f5f-92de-77fc1eb2dd73", APIVersion:"v1", ResourceVersion:"138473", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
+I0125 15:13:05.848182       7 controller.go:193] "Configuration changes detected, backend reload required"
+I0125 15:13:05.940626       7 controller.go:213] "Backend successfully reloaded"
+I0125 15:13:05.941114       7 event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-5bdc4f464b-f5mv5", UID:"94f304dc-51e4-4f5f-92de-77fc1eb2dd73", APIVersion:"v1", ResourceVersion:"138473", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
+I0125 15:13:10.291609       7 controller.go:193] "Configuration changes detected, backend reload required"
+I0125 15:13:10.365951       7 controller.go:213] "Backend successfully reloaded"
+I0125 15:13:10.366480       7 event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-5bdc4f464b-f5mv5", UID:"94f304dc-51e4-4f5f-92de-77fc1eb2dd73", APIVersion:"v1", ResourceVersion:"138473", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
+I0125 15:14:16.324381       7 controller.go:193] "Configuration changes detected, backend reload required"
+I0125 15:14:16.402644       7 controller.go:213] "Backend successfully reloaded"
+I0125 15:14:16.403241       7 event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-5bdc4f464b-f5mv5", UID:"94f304dc-51e4-4f5f-92de-77fc1eb2dd73", APIVersion:"v1", ResourceVersion:"138473", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
+I0125 15:14:20.840385       7 controller.go:193] "Configuration changes detected, backend reload required"
+I0125 15:14:20.935462       7 controller.go:213] "Backend successfully reloaded"
+I0125 15:14:20.935879       7 event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-5bdc4f464b-f5mv5", UID:"94f304dc-51e4-4f5f-92de-77fc1eb2dd73", APIVersion:"v1", ResourceVersion:"138473", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
+I0125 15:14:25.318732       7 controller.go:193] "Configuration changes detected, backend reload required"
+I0125 15:14:25.403305       7 controller.go:213] "Backend successfully reloaded"
+I0125 15:14:25.403802       7 event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-5bdc4f464b-f5mv5", UID:"94f304dc-51e4-4f5f-92de-77fc1eb2dd73", APIVersion:"v1", ResourceVersion:"138473", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
+I0125 15:14:29.851725       7 controller.go:193] "Configuration changes detected, backend reload required"
+I0125 15:14:29.942172       7 controller.go:213] "Backend successfully reloaded"
+I0125 15:14:29.942597       7 event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-5bdc4f464b-f5mv5", UID:"94f304dc-51e4-4f5f-92de-77fc1eb2dd73", APIVersion:"v1", ResourceVersion:"138473", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
+I0125 15:14:34.329705       7 controller.go:193] "Configuration changes detected, backend reload required"
+I0125 15:14:34.409118       7 controller.go:213] "Backend successfully reloaded"
+I0125 15:14:34.409834       7 event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-5bdc4f464b-f5mv5", UID:"94f304dc-51e4-4f5f-92de-77fc1eb2dd73", APIVersion:"v1", ResourceVersion:"138473", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
+I0125 15:14:38.717029       7 controller.go:193] "Configuration changes detected, backend reload required"
+I0125 15:14:38.807362       7 controller.go:213] "Backend successfully reloaded"
+I0125 15:14:38.807896       7 event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-5bdc4f464b-f5mv5", UID:"94f304dc-51e4-4f5f-92de-77fc1eb2dd73", APIVersion:"v1", ResourceVersion:"138473", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
+I0125 15:14:43.143564       7 controller.go:193] "Configuration changes detected, backend reload required"
+I0125 15:14:43.226209       7 controller.go:213] "Backend successfully reloaded"
+I0125 15:14:43.226657       7 event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-5bdc4f464b-f5mv5", UID:"94f304dc-51e4-4f5f-92de-77fc1eb2dd73", APIVersion:"v1", ResourceVersion:"138473", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
+I0125 15:14:47.588354       7 controller.go:193] "Configuration changes detected, backend reload required"
+I0125 15:14:47.686158       7 controller.go:213] "Backend successfully reloaded"
+I0125 15:14:47.686475       7 event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-5bdc4f464b-f5mv5", UID:"94f304dc-51e4-4f5f-92de-77fc1eb2dd73", APIVersion:"v1", ResourceVersion:"138473", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
+I0125 15:14:52.047341       7 controller.go:193] "Configuration changes detected, backend reload required"
+I0125 15:14:52.134757       7 controller.go:213] "Backend successfully reloaded"
+I0125 15:14:52.135312       7 event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-5bdc4f464b-f5mv5", UID:"94f304dc-51e4-4f5f-92de-77fc1eb2dd73", APIVersion:"v1", ResourceVersion:"138473", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
+I0125 15:14:56.470362       7 controller.go:193] "Configuration changes detected, backend reload required"
+I0125 15:14:56.552761       7 controller.go:213] "Backend successfully reloaded"
+I0125 15:14:56.553109       7 event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-5bdc4f464b-f5mv5", UID:"94f304dc-51e4-4f5f-92de-77fc1eb2dd73", APIVersion:"v1", ResourceVersion:"138473", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
+I0125 15:15:00.907073       7 controller.go:193] "Configuration changes detected, backend reload required"
+I0125 15:15:00.991358       7 controller.go:213] "Backend successfully reloaded"
+I0125 15:15:00.991770       7 event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-5bdc4f464b-f5mv5", UID:"94f304dc-51e4-4f5f-92de-77fc1eb2dd73", APIVersion:"v1", ResourceVersion:"138473", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
+I0125 15:15:05.341563       7 controller.go:193] "Configuration changes detected, backend reload required"
+I0125 15:15:05.424587       7 controller.go:213] "Backend successfully reloaded"
+I0125 15:15:05.425084       7 event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-5bdc4f464b-f5mv5", UID:"94f304dc-51e4-4f5f-92de-77fc1eb2dd73", APIVersion:"v1", ResourceVersion:"138473", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
+I0125 15:15:09.822412       7 controller.go:193] "Configuration changes detected, backend reload required"
+I0125 15:15:09.905543       7 controller.go:213] "Backend successfully reloaded"
+I0125 15:15:09.905921       7 event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-5bdc4f464b-f5mv5", UID:"94f304dc-51e4-4f5f-92de-77fc1eb2dd73", APIVersion:"v1", ResourceVersion:"138473", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
+I0125 15:15:14.275486       7 controller.go:193] "Configuration changes detected, backend reload required"
+I0125 15:15:14.358273       7 controller.go:213] "Backend successfully reloaded"
+I0125 15:15:14.358664       7 event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-5bdc4f464b-f5mv5", UID:"94f304dc-51e4-4f5f-92de-77fc1eb2dd73", APIVersion:"v1", ResourceVersion:"138473", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
+I0125 15:15:18.731702       7 controller.go:193] "Configuration changes detected, backend reload required"
+I0125 15:15:18.820983       7 controller.go:213] "Backend successfully reloaded"
+I0125 15:15:18.821401       7 event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-5bdc4f464b-f5mv5", UID:"94f304dc-51e4-4f5f-92de-77fc1eb2dd73", APIVersion:"v1", ResourceVersion:"138473", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
+I0125 15:15:23.117131       7 controller.go:193] "Configuration changes detected, backend reload required"
+I0125 15:15:23.199732       7 controller.go:213] "Backend successfully reloaded"
+I0125 15:15:23.200147       7 event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-5bdc4f464b-f5mv5", UID:"94f304dc-51e4-4f5f-92de-77fc1eb2dd73", APIVersion:"v1", ResourceVersion:"138473", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
+I0125 15:15:27.639880       7 controller.go:193] "Configuration changes detected, backend reload required"
+I0125 15:15:27.717767       7 controller.go:213] "Backend successfully reloaded"
+I0125 15:15:27.718284       7 event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-5bdc4f464b-f5mv5", UID:"94f304dc-51e4-4f5f-92de-77fc1eb2dd73", APIVersion:"v1", ResourceVersion:"138473", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
+I0125 15:15:32.136513       7 controller.go:193] "Configuration changes detected, backend reload required"
+I0125 15:15:32.228602       7 controller.go:213] "Backend successfully reloaded"
+I0125 15:15:32.228996       7 event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-5bdc4f464b-f5mv5", UID:"94f304dc-51e4-4f5f-92de-77fc1eb2dd73", APIVersion:"v1", ResourceVersion:"138473", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
+I0125 15:19:29.509132       7 controller.go:193] "Configuration changes detected, backend reload required"
+I0125 15:19:29.593715       7 controller.go:213] "Backend successfully reloaded"
+I0125 15:19:29.594166       7 event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-5bdc4f464b-f5mv5", UID:"94f304dc-51e4-4f5f-92de-77fc1eb2dd73", APIVersion:"v1", ResourceVersion:"138473", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
+I0125 15:19:35.878956       7 controller.go:193] "Configuration changes detected, backend reload required"
+I0125 15:19:35.966632       7 controller.go:213] "Backend successfully reloaded"
+I0125 15:19:35.967051       7 event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-5bdc4f464b-f5mv5", UID:"94f304dc-51e4-4f5f-92de-77fc1eb2dd73", APIVersion:"v1", ResourceVersion:"138473", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
+I0125 15:19:42.381248       7 controller.go:193] "Configuration changes detected, backend reload required"
+I0125 15:19:42.465381       7 controller.go:213] "Backend successfully reloaded"
+I0125 15:19:42.465740       7 event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-5bdc4f464b-f5mv5", UID:"94f304dc-51e4-4f5f-92de-77fc1eb2dd73", APIVersion:"v1", ResourceVersion:"138473", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
+I0125 15:20:08.248573       7 controller.go:193] "Configuration changes detected, backend reload required"
+I0125 15:20:08.329517       7 controller.go:213] "Backend successfully reloaded"
+I0125 15:20:08.329955       7 event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-5bdc4f464b-f5mv5", UID:"94f304dc-51e4-4f5f-92de-77fc1eb2dd73", APIVersion:"v1", ResourceVersion:"138473", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
+I0125 15:20:17.699640       7 controller.go:193] "Configuration changes detected, backend reload required"
+I0125 15:20:17.778863       7 controller.go:213] "Backend successfully reloaded"
+I0125 15:20:17.779257       7 event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-5bdc4f464b-f5mv5", UID:"94f304dc-51e4-4f5f-92de-77fc1eb2dd73", APIVersion:"v1", ResourceVersion:"138473", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
+I0125 15:20:27.190410       7 controller.go:193] "Configuration changes detected, backend reload required"
+I0125 15:20:27.274371       7 controller.go:213] "Backend successfully reloaded"
+I0125 15:20:27.274807       7 event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-5bdc4f464b-f5mv5", UID:"94f304dc-51e4-4f5f-92de-77fc1eb2dd73", APIVersion:"v1", ResourceVersion:"138473", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
+I0125 15:20:36.669148       7 controller.go:193] "Configuration changes detected, backend reload required"
+I0125 15:20:36.746816       7 controller.go:213] "Backend successfully reloaded"
+I0125 15:20:36.747324       7 event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-5bdc4f464b-f5mv5", UID:"94f304dc-51e4-4f5f-92de-77fc1eb2dd73", APIVersion:"v1", ResourceVersion:"138473", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
+I0125 15:20:46.148325       7 controller.go:193] "Configuration changes detected, backend reload required"
+I0125 15:20:46.230164       7 controller.go:213] "Backend successfully reloaded"
+I0125 15:20:46.230651       7 event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-5bdc4f464b-f5mv5", UID:"94f304dc-51e4-4f5f-92de-77fc1eb2dd73", APIVersion:"v1", ResourceVersion:"138473", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
+I0125 15:20:55.667007       7 controller.go:193] "Configuration changes detected, backend reload required"
+I0125 15:20:55.741877       7 controller.go:213] "Backend successfully reloaded"
+I0125 15:20:55.742273       7 event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-5bdc4f464b-f5mv5", UID:"94f304dc-51e4-4f5f-92de-77fc1eb2dd73", APIVersion:"v1", ResourceVersion:"138473", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
+I0125 15:21:05.068128       7 controller.go:193] "Configuration changes detected, backend reload required"
+I0125 15:21:05.159691       7 controller.go:213] "Backend successfully reloaded"
+I0125 15:21:05.160187       7 event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-5bdc4f464b-f5mv5", UID:"94f304dc-51e4-4f5f-92de-77fc1eb2dd73", APIVersion:"v1", ResourceVersion:"138473", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
+I0125 15:21:14.462534       7 controller.go:193] "Configuration changes detected, backend reload required"
+I0125 15:21:14.550143       7 controller.go:213] "Backend successfully reloaded"
+I0125 15:21:14.550497       7 event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-5bdc4f464b-f5mv5", UID:"94f304dc-51e4-4f5f-92de-77fc1eb2dd73", APIVersion:"v1", ResourceVersion:"138473", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
+I0125 15:21:23.878997       7 controller.go:193] "Configuration changes detected, backend reload required"
+I0125 15:21:23.964083       7 controller.go:213] "Backend successfully reloaded"
+I0125 15:21:23.964553       7 event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-5bdc4f464b-f5mv5", UID:"94f304dc-51e4-4f5f-92de-77fc1eb2dd73", APIVersion:"v1", ResourceVersion:"138473", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
+I0125 18:22:51.542492       7 controller.go:193] "Configuration changes detected, backend reload required"
+I0125 18:22:51.571555       7 controller.go:213] "Backend successfully reloaded"
+I0125 18:22:51.571890       7 event.go:377] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-nginx", Name:"ingress-nginx-controller-5bdc4f464b-f5mv5", UID:"94f304dc-51e4-4f5f-92de-77fc1eb2dd73", APIVersion:"v1", ResourceVersion:"138473", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration

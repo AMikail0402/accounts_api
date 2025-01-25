@@ -1,7 +1,7 @@
 #!/bin/bash
 begin=$(date +'%Y-%m-%dT%H:%M:%S%3N')
 
-appendage=std_ing
+appendage=svc
 
 echo -e "{\n  \"time_total\": \"0s\",\n  \"sent_time\": \"${begin}\"\n}," >> totals_$appendage.json
 
