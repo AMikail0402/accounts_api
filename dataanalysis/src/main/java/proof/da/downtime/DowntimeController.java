@@ -12,6 +12,7 @@ import proof.da.downtime.CurlService;
 import proof.da.downtime.dto.TimeDto;
 import proof.da.downtime.dto.CoordsDto;
 import proof.da.downtime.dto.InputDto;
+import proof.da.downtime.dto.MedianDto;
 import proof.da.downtime.dto.OutputDto;
 
 @RestController
@@ -30,6 +31,11 @@ public class DowntimeController {
     @GetMapping("graph")
     public CoordsDto getCoords(@RequestBody List<TimeDto> list){
         return curlService.getCoords(list);
+    }
+
+    @GetMapping("graph/median")
+    public MedianDto getMedian(@RequestBody List<TimeDto> list){
+        return curlService.getMedian(list);
     }
 
     @GetMapping(path = "median")
