@@ -35,15 +35,15 @@ public class CurlService {
         for(TimeDto tDto : list ){
             if(i ==1){
                     i++;
+                    LocalDateTime elemTime = LocalDateTime.parse(tDto.sent_time(), formatter);
+                    beforeMilli = elemTime.toInstant(ZoneOffset.UTC).toEpochMilli();
                     continue;
             }
             Double time = Double.parseDouble(tDto.time_total().replace("s", ""))*1000;
             medList.add(time);
-            // 9.441
-            // 8.758)
+
             // calculating difference
             LocalDateTime elemTime = LocalDateTime.parse(tDto.sent_time(), formatter);
-            System.out.println(time);
 
             String chSeconds = Long.toString(elemTime.toInstant(ZoneOffset.UTC).toEpochMilli()-beforeMilli);
             Double dSeconds = Double.parseDouble(chSeconds)/1000;
@@ -57,22 +57,31 @@ public class CurlService {
          
          return new MedianDto(
             "Die tendenzielle Latenz liegt bei: "+calcMedian(medList)+"ms",
-            "Der tendenzielle Unterschied in der Absendezeit liegt bei: "+calcMedian(differences)*1000+"ms",
-            "Die durchschnittliche Antwortzeit liegt bei: "+calcAverage(medList)
+            "Der tendenzielle Unterschied in den Absendezeiten liegt bei: "+calcMedian(differences)*1000+"ms",
+            "Die durchschnittliche Antwortzeit liegt bei: "+calcAverage(medList,false)+"ms",
+            "Der durchschnittliche Unterschied in den Absendezeiten liegt bei: "+calcAverage(differences,true)+"ms"
         );
 
     }
 
     
-    private Double calcAverage(List<Double> list){
+    private Double calcAverage(List<Double> list,boolean send){
         
       Collections.sort(list);
+
+      int multiplicator = send ? 1000 : 1;
 
       Double sum = 0.0;
 
       for(Double d : list){
-        sum += d;
+        if(send){
+            System.out.println(d*multiplicator);
+            System.out.println(sum);
+        }
+
+        sum += d*multiplicator;
       }
+      System.out.println("Endsumme"+sum);
         
       return sum/list.size();
 
@@ -115,16 +124,6 @@ public class CurlService {
             Double dSeconds = Double.parseDouble(chSeconds)/1000;
 
             //
-            if(Math.round(time * 1000.0) / 1000.0 == 9.441 ){
-                System.out.println("chSeconds"+chSeconds+"\n"
-                +"dSeconds"+dSeconds+"\n"
-                + "elemTime"+elemTime);
-            }
-            if(Math.round(time * 1000.0) / 1000.0 == 8.758 ){
-                System.out.println("chSeconds"+chSeconds+"\n"
-                +"dSeconds"+dSeconds+"\n"
-                + "elemTime"+elemTime);
-            }
             
             graph.append("("+dSeconds+","+Math.round(time * 1000.0) / 1000.0+")");
             i++;

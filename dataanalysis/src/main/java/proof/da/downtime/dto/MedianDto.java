@@ -1,4 +1,4 @@
 package proof.da.downtime.dto;
 
-public record MedianDto(String median, String medianDifferenc, String average) {
+public record MedianDto(String median, String medianDifference, String average, String averageDifference) {
 } 
