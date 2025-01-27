@@ -9,23 +9,26 @@ spec:
         app: cron
     spec:
       volumes:
-      - name: secret-connection-volume
+      - name: deletion-volume
         secret:
-         secretName: kill-connections-sql
-      initContainers:
-      - name: reset-db
-        image: postgres:latest
-        command: ["psql","-h", "accounts-db-2-postgresql.db-2", "-U","postgres","-d","postgres","-a","-f","/etc/secret-volume/connections/.secret-file" ]
-        env:
-         - name: PGPASSWORD
-           valueFrom:
-               secretKeyRef:
-                 name: pg-connection-secret
-                 key: PGPASSWORD
-        volumeMounts:
-        - name: secret-connection-volume
-          readOnly: true
-          mountPath: "/etc/secret-volume/connections"
+         secretName: delete-tables-sql
+      - name: pg-pass 
+        secret:
+          secretName: pgpassfile
+      #containers:
+      #- name: reset-db
+      #  image: postgres:latest
+      # command: ["psql","-h", "accounts-db-2-postgresql.db-2", "-U","admin","-d","datenbank","-a","-f","/etc/secret-volume/connections/.secret-file" ]
+      #  env:
+      #   - name: PGPASSWORD
+      #     valueFrom:
+      #         secretKeyRef:
+      #           name: pg-delete-secret
+      #           key: PGPASSWORD
+      #  volumeMounts:
+      #  - name: deletion-volume
+      #    readOnly: true
+      #    mountPath: "/etc/secret-volume/connections"
       containers:
       - name: fill-db-with-schema
         image: postgres:latest
@@ -33,14 +36,15 @@ spec:
           - /bin/sh
           - -c
           - |
-            pg_dump --schema-only -h accounts-db-postgresql.db -U admin -d datenbank
+            pg_dump --schema-only -h accounts-db-postgresql.db -U transfernew -d datenbank > dump.sql
+            psql -h accounts-db-2-postgresql.db-2 -U admin < dump.sql
         env:
          - name: PGPASSWORD
            valueFrom:
                secretKeyRef:
                  name: pg-transfer-secret
                  key: PGPASSWORD
-      restartPolicy: Never
+  
   backoffLimit: 4
 
   # sources

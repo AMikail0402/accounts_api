@@ -1,6 +1,0 @@
-apiVersion: v1
-kind: Secret
-metadata:
-  name: kill-connections-sql
-data:
-  .secret-file: U0VMRUNUIHBnX3Rlcm1pbmF0ZV9iYWNrZW5kKHBpZCkKRlJPTSBwZ19zdGF0X2FjdGl2aXR5CldIRVJFIGRhdG5hbWUgPSAnZGF0ZW5iYW5rJwpBTkQgcGlkIDw+IHBnX2JhY2tlbmRfcGlkKCk7CgotLSBlbmQgYWxsIHNlc3Npb25zCgpEUk9QIERBVEFCQVNFIGRhdGVuYmFuazsKCkNSRUFURSBEQVRBQkFTRSBkYXRlbmJhbmsgd2l0aCBPV05FUiBhZG1pbjsKCgo=
