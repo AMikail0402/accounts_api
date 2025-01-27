@@ -36,10 +36,10 @@ helm install accounts-project ./deployment/api -n temp \
 
 # extract primaryNamespace / determine blue and green
 
-re='.*\.(.*).svc'
+re='.*\-(main.*)'
 
 # extract fqdn of active service
-domain=$(kubectl get svc api-svc-01 -o jsonpath='{.spec.externalName}' -n networking)
+domain=$(kubectl get ingress api-ingress -o jsonpath='{.spec.rules[0].http.paths[0].backend.service.name}' -n networking)
 
 echo $domain
 
@@ -66,7 +66,7 @@ echo $secondaryNameSpace
 
 # expose grey
 # primary namespace needs to be seen
-helm upgrade networking ./deployment/svc_switch -n networking \
+helm upgrade networking ./deployment/ingress_switch -n networking \
 --set test=true \
 --set primaryNameSpace=$primaryNameSpace \
 --set hostname=$HOSTNAME

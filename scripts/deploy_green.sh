@@ -2,10 +2,10 @@
 
 source .env
 
-re='.*\.(.*).svc'
+re='.*\-(main.*)'
 
 # extract fqdn of active service
-domain=$(kubectl get svc api-svc-01 -o jsonpath='{.spec.externalName}' -n networking)
+domain=$(kubectl get ingress api-ingress -o jsonpath='{.spec.rules[0].http.paths[0].backend.service.name}' -n networking)
 
 echo $domain
 
@@ -34,7 +34,7 @@ echo $secondaryNameSpace
 helm uninstall accounts-project -n temp
 
 # stop exposing grey
-helm upgrade networking ./deployment/svc_switch -n networking \
+helm upgrade networking ./deployment/ingress_switch -n networking \
 --set test=false \
 --set primaryNameSpace=$primaryNameSpace \
 --set hostname=$HOSTNAME
@@ -47,7 +47,7 @@ helm upgrade accounts-project ./deployment/api -n $secondaryNameSpace \
 --set version=$VERSION --install
 
 # switch traffic to secondary namespace
-helm upgrade networking ./deployment/vc_switch -n networking \
+helm upgrade networking ./deployment/ingress_switch -n networking \
 --set test=false \
 --set primaryNameSpace=$secondaryNameSpace\
 --set hostname=$HOSTNAME

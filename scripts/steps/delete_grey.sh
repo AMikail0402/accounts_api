@@ -2,11 +2,10 @@
 
 helm uninstall accounts-project -n temp
 
-
-re='.*\.(.*).svc'
+re='.*\-(main.*)'
 
 # extract fqdn of active service
-domain=$(kubectl get svc api-svc-01 -o jsonpath='{.spec.externalName}' -n networking)
+domain=$(kubectl get ingress api-ingress -o jsonpath='{.spec.rules[0].http.paths[0].backend.service.name}' -n networking)
 
 echo $domain
 
@@ -15,7 +14,7 @@ echo $domain
 primaryNameSpace=${BASH_REMATCH[1]}
 
 # stop exposing grey
-helm upgrade networking ./deployment/svc_switch -n networking \
+helm upgrade networking ./deployment/ingress_switch -n networking \
 --set test=false \
 --set hostname=$HOSTNAME \
 --set primaryNameSpace=$primaryNameSpace
