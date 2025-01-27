@@ -9,26 +9,32 @@ spec:
         app: cron
     spec:
       volumes:
-      - name: deletion-volume
-        secret:
-         secretName: delete-tables-sql
-      - name: pg-pass 
-        secret:
-          secretName: pgpassfile
-      #containers:
-      #- name: reset-db
-      #  image: postgres:latest
-      # command: ["psql","-h", "accounts-db-2-postgresql.db-2", "-U","admin","-d","datenbank","-a","-f","/etc/secret-volume/connections/.secret-file" ]
-      #  env:
-      #   - name: PGPASSWORD
-      #     valueFrom:
-      #         secretKeyRef:
-      #           name: pg-delete-secret
-      #           key: PGPASSWORD
-      #  volumeMounts:
-      #  - name: deletion-volume
-      #    readOnly: true
-      #    mountPath: "/etc/secret-volume/connections"
+        - name: deletion-volume
+          secret:
+            secretName: delete-tables-sql
+        - name: pg-pass 
+          secret:
+            secretName: pgpassfile
+      initContainers:
+        - name: reset-db
+          image: postgres:latest
+          command:
+           - /bin/sh
+           - -c
+           - |
+             cp /etc/pgpassdir/.secret-file /etc/.pgpassfile
+             chmod 600 /etc/.pgpassfile
+             psql -h accounts-db-2-postgresql.db-2 -U admin -d datenbank -a -f /etc/secret-volume/connections/.secret-file
+          env:
+           - name: PGPASSFILE
+             value: "/etc/.pgpassfile"
+          volumeMounts:
+            - name: deletion-volume
+              readOnly: true
+              mountPath: "/etc/secret-volume/connections"
+            - name: pg-pass
+              readOnly: true
+              mountPath: "/etc/pgpassdir"
       containers:
       - name: fill-db-with-schema
         image: postgres:latest
@@ -36,16 +42,20 @@ spec:
           - /bin/sh
           - -c
           - |
+            cp /etc/pgpassdir/.secret-file /etc/.pgpassfile
+            chmod 600 /etc/.pgpassfile
+            cat /etc/.pgpassfile
             pg_dump --schema-only -h accounts-db-postgresql.db -U transfernew -d datenbank > dump.sql
-            psql -h accounts-db-2-postgresql.db-2 -U admin < dump.sql
+            psql -h accounts-db-2-postgresql.db-2 -d datenbank -U admin < dump.sql
         env:
-         - name: PGPASSWORD
-           valueFrom:
-               secretKeyRef:
-                 name: pg-transfer-secret
-                 key: PGPASSWORD
-  
-  backoffLimit: 4
+           - name: PGPASSFILE
+             value: "/etc/.pgpassfile"
+        volumeMounts:
+            - name: pg-pass
+              readOnly: true
+              mountPath: "/etc/pgpassdir"
+      restartPolicy: Never
+  backoffLimit: 1
 
   # sources
   # https://kubernetes.io/docs/concepts/configuration/secret/
