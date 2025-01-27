@@ -21,7 +21,7 @@ spec:
        paths:
        - backend:
           service:
-            name: api-svc-temp
+            name: temp-svc-temp
             port:
                number: 8080
          path: /api

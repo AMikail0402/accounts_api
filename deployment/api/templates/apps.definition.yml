@@ -44,7 +44,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
+  {{ if ne .Release.Namespace "temp" }}
   name: {{ $root.svcName }}
+  {{ else }}
+  name: temp-svc
+  {{ end }}
 spec:
   selector:
     app: {{ $root.appName}}
