@@ -42,6 +42,7 @@ spec:
           - /bin/sh
           - -c
           - |
+            whoami
             cp /etc/pgpassdir/.secret-file /etc/.pgpassfile
             chmod 600 /etc/.pgpassfile
             cat /etc/.pgpassfile
