@@ -24,12 +24,13 @@ spec:
           - |
             cp /etc/pgpassdir/.secret-file /etc/.pgpassfile
             chmod 600 /etc/.pgpassfile
-            psql -h accounts-db-2-postgresql.db-2 -U admin -d datenbank -a -f /etc/secret-volume/connections/.secret-file
-            echo "//////  DATA DELETED ///////////\n"
-            sleep 3
-            pg_dump --schema-only -h accounts-db-postgresql.db -U transfernew -d datenbank > dump.sql
-            sleep 2
-            psql -h accounts-db-2-postgresql.db-2 -d datenbank -U admin < dump.sql
+            psql -h accounts-db-2-postgresql.db-2 -U dropuser -d datenbank -a -f /etc/secret-volume/connections/.secret-file
+           # echo "//////  DATA DELETED ///////////\n"
+           # sleep 3
+           # pg_dump --schema-only -h accounts-db-postgresql.db -U transfernew -d datenbank > dump.sql
+           # sleep 2
+           # cat dump.sql
+           # psql -h accounts-db-2-postgresql.db-2 -d datenbank -U deletenew < dump.sql
         env:
            - name: PGPASSFILE
              value: "/etc/.pgpassfile"

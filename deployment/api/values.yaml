@@ -22,11 +22,11 @@ accountsApi:
 instance: # to be set with external values 
 
 environment:
-  registryUrl: docker.registry  
+  registryUrl: localhost 
 
 db: 
- username: admin
- password: admin
+ username: towner
+ password: towner
  namespace:  # set with external vars
 
 version:  # set with external vars
