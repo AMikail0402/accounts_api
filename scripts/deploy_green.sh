@@ -30,14 +30,14 @@ esac
 
 echo $secondaryNameSpace
 
-# uninstall grey
-helm uninstall accounts-project -n temp
-
 # stop exposing grey
 helm upgrade networking ./deployment/ingress_switch -n networking \
 --set test=false \
 --set primaryNameSpace=$primaryNameSpace \
 --set hostname=$HOSTNAME
+
+# uninstall grey
+helm uninstall accounts-project -n temp
 
 echo $secondaryNamespace
 
@@ -49,7 +49,7 @@ helm upgrade accounts-project ./deployment/api -n $secondaryNameSpace \
 # switch traffic to secondary namespace
 helm upgrade networking ./deployment/ingress_switch -n networking \
 --set test=false \
---set primaryNameSpace=$secondaryNameSpace\
+--set primaryNameSpace=$secondaryNameSpace \
 --set hostname=$HOSTNAME
 
 # traffic now points to green 

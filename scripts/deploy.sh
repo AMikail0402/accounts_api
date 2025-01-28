@@ -22,7 +22,7 @@ cd ../..
 kubectl delete jobs --all -n db-job
 
 # reset db and import schema 
-kubectl apply -f ./deployment/db/reset-connections-job.yml -n db-job
+kubectl apply -f ./deployment/db/transfer-job.yml -n db-job
 
 # wait for db reset
 kubectl wait --for=condition=complete job/db-reset -n db-job
