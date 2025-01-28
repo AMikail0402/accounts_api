@@ -15,26 +15,6 @@ spec:
         - name: pg-pass 
           secret:
             secretName: pgpassfile
-      initContainers:
-        - name: reset-db
-          image: postgres:latest
-          command:
-           - /bin/sh
-           - -c
-           - |
-             cp /etc/pgpassdir/.secret-file /etc/.pgpassfile
-             chmod 600 /etc/.pgpassfile
-             psql -h accounts-db-2-postgresql.db-2 -U admin -d datenbank -a -f /etc/secret-volume/connections/.secret-file
-          env:
-           - name: PGPASSFILE
-             value: "/etc/.pgpassfile"
-          volumeMounts:
-            - name: deletion-volume
-              readOnly: true
-              mountPath: "/etc/secret-volume/connections"
-            - name: pg-pass
-              readOnly: true
-              mountPath: "/etc/pgpassdir"
       containers:
       - name: fill-db-with-schema
         image: postgres:latest
@@ -42,16 +22,21 @@ spec:
           - /bin/sh
           - -c
           - |
-            whoami
             cp /etc/pgpassdir/.secret-file /etc/.pgpassfile
             chmod 600 /etc/.pgpassfile
-            cat /etc/.pgpassfile
+            psql -h accounts-db-2-postgresql.db-2 -U admin -d datenbank -a -f /etc/secret-volume/connections/.secret-file
+            echo "//////  DATA DELETED ///////////\n"
+            sleep 3
             pg_dump --schema-only -h accounts-db-postgresql.db -U transfernew -d datenbank > dump.sql
+            sleep 2
             psql -h accounts-db-2-postgresql.db-2 -d datenbank -U admin < dump.sql
         env:
            - name: PGPASSFILE
              value: "/etc/.pgpassfile"
         volumeMounts:
+            - name: deletion-volume
+              readOnly: true
+              mountPath: "/etc/secret-volume/connections"
             - name: pg-pass
               readOnly: true
               mountPath: "/etc/pgpassdir"

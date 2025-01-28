@@ -1,0 +1,2 @@
+Jul  6 15:37:40 my-machine kernel: [369128.669519] audit: type=1326 audit(1594067860.484:14541): auid=4294967295 uid=0 gid=0 ses=4294967295 pid=29064 comm='http-echo' exe='/http-echo' sig=0 arch=c000003e syscall=270 compat=0 ip=0x4559b1 code=0x7ffc0000
+Jul  6 15:38:40 my-machine kernel: [369188.671648] audit: type=1326 audit(1594067920.488:14559): auid=4294967295 uid=0 gid=0 ses=4294967295 pid=29064 comm='http-echo' exe='/http-echo' sig=0 arch=c000003e syscall=270 compat=0 ip=0x4559b1 code=0x7ffc0000
