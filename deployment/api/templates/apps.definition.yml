@@ -33,11 +33,6 @@ spec:
             periodSeconds: {{ $root.readiness.periodSeconds}}
             initialDelaySeconds: {{ $root.readiness.initialDelaySeconds }}
             failureThreshold: {{ $root.readiness.failureThreshold }}
-         volumes:
-          - name: host
-            hostPath:
-              path: /
-              type: Directory
 
 ---
 
