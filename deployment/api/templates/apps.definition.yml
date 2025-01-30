@@ -1,3 +1,4 @@
+{{ $secretName := .Values.accountsApi.secret.name }}
 {{ $root := .Values.accountsApi }}
 apiVersion: apps/v1
 kind: Deployment
@@ -23,9 +24,14 @@ spec:
              limits:
                cpu: "500m" 
                memory: "500Mi" 
-           envFrom:
-           - configMapRef:
-               name: {{ $root.config }}
+           env:
+           {{- range $root.secret.keys }}
+           - name: {{ . }}
+             valueFrom:
+               secretKeyRef:
+                 name: {{ $secretName }}
+                 key: {{ . }}
+           {{- end}}
            readinessProbe:
             {{ $root.readiness.method }}
              path: {{ $root.readiness.path }}
@@ -33,6 +39,10 @@ spec:
             periodSeconds: {{ $root.readiness.periodSeconds}}
             initialDelaySeconds: {{ $root.readiness.initialDelaySeconds }}
             failureThreshold: {{ $root.readiness.failureThreshold }}
+         hostAliases:
+          - ip: {{ .Values.iam.ip }}
+            hostnames:
+            - {{ .Values.iam.hostname }}
 
 ---
 

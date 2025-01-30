@@ -28,20 +28,19 @@ public class ValidateToken {
     // Später env
     static {
         
-        /*  kcUrl = System.getenv("KC_URL");
-            kcClientId = System.getenv("KC_CLIENT_ID");
-            kcClientSecret = System.getenv("KC_CLIENT_SECRET");
-            kcRealm = System.getenv("KC_REALM");*/
-            kcUrl = "https://localhost/auth";
+         kcUrl = System.getenv("KC_URL");
+         kcClientId = System.getenv("KC_CLIENT_ID");
+         kcClientSecret = System.getenv("KC_CLIENT_SECRET");
+         kcRealm = System.getenv("KC_REALM");
+            /*kcUrl = "https://iam/auth";
             kcClientId = "banking-client";
             kcClientSecret = "BFIHZHwOgiiyHOir0fKyGDfP2rUCkX88";
-            kcRealm = "master";
+            kcRealm = "master";*/
 
     }
 
     public static void validate(String bearer){
-        
-        System.out.println(bearer.split("\s")[1]);
+
         MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
         RequestBody body = RequestBody.create(mediaType, "client_id="+kcClientId+"&client_secret="+kcClientSecret+"&grant_type=client_credentials&token="
         +bearer.split("\s")[1]);

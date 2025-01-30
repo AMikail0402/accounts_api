@@ -7,7 +7,7 @@ metadata:
 spec:
   containers:
   - name: keycloak
-    image: localhost/kc:1
+    image: localhost/kc:2
     ports:
     - containerPort: 8080
 

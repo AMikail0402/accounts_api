@@ -17,6 +17,22 @@ accountsApi:
   connection:
     port: 8080
     protocol: TCP
+  secret: 
+    name: spring-secret
+    keys: 
+     - SPRING_DATASOURCE_URL
+     - SPRING_DATASOURCE_USERNAME
+     - SPRING_DATASOURCE_PASSWORD
+     - KC_URL
+     - KC_CLIENT_ID
+     - KC_CLIENT_SECRET
+     - KC_REALM
+
+   
+
+iam: 
+  hostname: iam
+  ip: 192.168.127.2
 
 
 instance: # to be set with external values 
