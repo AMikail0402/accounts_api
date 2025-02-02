@@ -31,7 +31,7 @@ esac
 echo $secondaryNameSpace
 
 # stop exposing grey
-helm upgrade networking ./deployment/ingress_switch -n networking \
+helm upgrade networking ../deployment/ingress_switch -n networking \
 --set test=false \
 --set primaryNameSpace=$primaryNameSpace \
 --set hostname=$HOSTNAME
@@ -42,12 +42,12 @@ helm uninstall accounts-project -n temp
 echo $secondaryNamespace
 
 # deploy new version to secondaryNamespace
-helm upgrade accounts-project ./deployment/api -n $secondaryNameSpace \
+helm upgrade accounts-project ../deployment/api -n $secondaryNameSpace \
 --set db.namespace=db \
 --set version=$VERSION --install
 
 # switch traffic to secondary namespace
-helm upgrade networking ./deployment/ingress_switch -n networking \
+helm upgrade networking ../deployment/ingress_switch -n networking \
 --set test=false \
 --set primaryNameSpace=$secondaryNameSpace \
 --set hostname=$HOSTNAME
