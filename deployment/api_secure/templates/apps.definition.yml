@@ -15,9 +15,18 @@ spec:
        labels:
          app: {{ $root.appName }}
       spec:
-         hostUsers: true
+         hostUsers: false
          containers:
          - name: {{ $root.appName }}
+           securityContext:
+             capabilities:
+               drop:
+                 - ALL
+             seccompProfile:
+               type: RuntimeDefault
+             runAsUser: 1000
+             allowPrivilegeEscalation: false
+             runAsNonRoot: true
            image: '{{ .Values.environment.registryUrl }}/{{ $root.appName }}:{{ .Values.version }}'
            ports:
            - containerPort: {{ $root.connection.port }}
