@@ -36,7 +36,7 @@ iam:
 instance: # to be set with external values 
 
 environment:
-  registryUrl: localhost 
+  registryUrl: docker.registry
 
 db: 
  username: towner

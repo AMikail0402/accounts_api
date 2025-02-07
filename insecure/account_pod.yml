@@ -16,7 +16,7 @@ spec:
          hostUsers: false
          containers:
          - name: accounts-api
-           image: localhost/accounts-api:vuln
+           image: docker.registry/accounts-api:1
            resources:
             limits:
               cpu: "100m"
@@ -33,5 +33,3 @@ spec:
             hostPath:
               path: /
               type: Directory
-
-

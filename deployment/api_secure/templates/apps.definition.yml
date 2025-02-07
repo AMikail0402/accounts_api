@@ -25,6 +25,8 @@ spec:
              seccompProfile:
                type: RuntimeDefault
              runAsUser: 1000
+             procMount: Default
+             privileged: false
              allowPrivilegeEscalation: false
              runAsNonRoot: true
            image: '{{ .Values.environment.registryUrl }}/{{ $root.appName }}:{{ .Values.version }}'
