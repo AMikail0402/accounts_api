@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # uninstall grey
-helm uninstall accounts-project -n temp
+helm uninstall accounts-project -n temp --kube-context pod-builder-sa-temp-context
 
 source .env
 
@@ -19,27 +19,27 @@ docker push $dockerUrl
 
 cd ../..
 
-kubectl delete jobs --all -n db-job
+#kubectl delete jobs --all -n db-job
 
 # reset db and import schema 
-kubectl apply -f ./deployment/db/transfer-job.yml -n db-job
+#kubectl apply -f ./deployment/db/transfer-job.yml -n db-job
 
 # wait for db reset
-kubectl wait --for=condition=complete job/db-reset -n db-job
+#kubectl wait --for=condition=complete job/db-reset -n db-job
 
 # comission grey
 ## db namespace is fixed for this deployment as well as namespace
-helm install accounts-project ./deployment/api -n temp \
---set db.namespace=db-2 \
+helm install accounts-project ./deployment/api_secure -n temp \
 --set version=$VERSION \
---set image.pullPolicy=Always --force
+--set image.pullPolicy=Always --force \
+--kube-context pod-builder-sa-temp-context
 
 # extract primaryNamespace / determine blue and green
 
 re='.*\-(main.*)'
 
 # extract fqdn of active service
-domain=$(kubectl get ingress api-ingress -o jsonpath='{.spec.rules[0].http.paths[0].backend.service.name}' -n networking)
+domain=$(kubectl get ingress api-ingress -o jsonpath='{.spec.rules[0].http.paths[0].backend.service.name}' -n networking --context networking-sa-context)
 
 echo $domain
 
@@ -69,7 +69,8 @@ echo $secondaryNameSpace
 helm upgrade networking ./deployment/ingress_switch -n networking \
 --set test=true \
 --set primaryNameSpace=$primaryNameSpace \
---set hostname=$HOSTNAME
+--set hostname=$HOSTNAME \
+--kube-context networking-sa-context
 
 # commence e2e test 
 sleep 5
