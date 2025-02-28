@@ -15,25 +15,38 @@ spec:
         - name: pg-pass 
           secret:
             secretName: pgpassfile
+        - name: temp-volume
+          emptyDir: {}
       containers:
       - name: fill-db-with-schema
+        securityContext:
+             capabilities:
+               drop:
+                 - ALL
+             seccompProfile:
+               type: RuntimeDefault
+             runAsUser: 1000
+             procMount: Default
+             privileged: false
+             allowPrivilegeEscalation: false
+             runAsNonRoot: true
         image: postgres:latest
         command:
           - /bin/sh
           - -c
           - |
-            cp /etc/pgpassdir/.secret-file /etc/.pgpassfile
-            chmod 600 /etc/.pgpassfile
+            cp /etc/pgpassdir/.secret-file /tmp/.pgpassfile
+            chmod 600 /tmp/.pgpassfile
             psql -h accounts-db-2-postgresql.db-2 -U towner -d datenbank -a -f /etc/secret-volume/connections/.secret-file
             echo "//////  DATA DELETED ///////////\n"
             sleep 3
-            pg_dump --schema-only -h accounts-db-postgresql.db -U transfernew -d datenbank > dump.sql
+            pg_dump --schema-only -h accounts-db-postgresql.db -U transfernew -d datenbank > /tmp/dump.sql
             sleep 2
-            cat dump.sql
-            psql -h accounts-db-2-postgresql.db-2 -d datenbank -U towner < dump.sql
+            cat /tmp/dump.sql
+            psql -h accounts-db-2-postgresql.db-2 -d datenbank -U towner < /tmp/dump.sql
         env:
            - name: PGPASSFILE
-             value: "/etc/.pgpassfile"
+             value: "/tmp/.pgpassfile"
         volumeMounts:
             - name: deletion-volume
               readOnly: true
@@ -41,6 +54,8 @@ spec:
             - name: pg-pass
               readOnly: true
               mountPath: "/etc/pgpassdir"
+            - name: temp-volume
+              mountPath: /tmp
       restartPolicy: Never
   backoffLimit: 1
 
