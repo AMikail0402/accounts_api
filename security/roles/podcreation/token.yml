@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: pod-builder-sa-token
+  namespace: temp
+  annotations:
+    kubernetes.io/service-account.name: "pod-builder-sa"
+type: kubernetes.io/service-account-token

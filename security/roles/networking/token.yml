@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: networking-sa-token
+  namespace: networking
+  annotations:
+    kubernetes.io/service-account.name: "networking-sa"
+type: kubernetes.io/service-account-token

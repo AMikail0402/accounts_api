@@ -1,0 +1,29 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: db-job
+  name: transfer-role
+rules:
+  - apiGroups: ["batch"]
+    resources: ["jobs"]
+    verbs: ["create", "get", "list", "watch", "delete"]
+  - apiGroups: [""]
+    resources: ["pods"]
+    verbs: ["create", "get", "list", "watch", "delete"]
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  namespace: db-job
+  name: transfer-role-binding
+subjects:
+  - kind: ServiceAccount
+    name: transfer-sa
+    namespace: db-job
+roleRef:
+  kind: Role
+  name: transfer-role
+  apiGroup: rbac.authorization.k8s.io
+

@@ -11,7 +11,7 @@ rules:
     resources: ["services"]
     verbs: ["create"   , "get"] 
   - apiGroups: [""]
-    resources: ["secrets"]
+    resources: ["configmaps"]
     verbs: ["list","create"]
   - apiGroups: ["apps"]
     resources: ["replicasets"]
@@ -35,13 +35,5 @@ roleRef:
   name: pod-and-service-creator-role
   apiGroup: rbac.authorization.k8s.io
 
----
 
-apiVersion: v1
-kind: Secret
-metadata:
-  name: pod-builder-sa-token
-  namespace: temp
-  annotations:
-    kubernetes.io/service-account.name: "pod-builder-sa"
-type: kubernetes.io/service-account-token
+
