@@ -1,0 +1,13 @@
+
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: deny-all-traffic
+  namespace: main
+spec:
+  podSelector:
+    matchLabels:
+      app: accounts-api
+  policyTypes:
+  - Ingress
+  - Egress

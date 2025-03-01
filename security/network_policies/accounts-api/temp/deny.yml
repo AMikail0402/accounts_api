@@ -1,16 +1,14 @@
-
-# edit this for prod-pod
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name: deny-all-traffic
-  namespace: db
+  namespace: temp
 spec:
   podSelector:
     matchLabels:
-      app.kubernetes.io/name: postgresql
+      app: accounts-api
   policyTypes:
   - Ingress
   - Egress
-
-  # https://spacelift.io/blog/kubernetes-network-policy
+  ingress: []
+  egress: []
