@@ -4,9 +4,7 @@ metadata:
   name: deny-all-traffic
   namespace: main-2
 spec:
-  podSelector:
-    matchLabels:
-      app: accounts-api
+  podSelector: {}
   policyTypes:
   - Ingress
   - Egress
