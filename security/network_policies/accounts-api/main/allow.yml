@@ -22,12 +22,6 @@ spec:
   - to:  
       - namespaceSelector:
           matchLabels:
-            kubernetes.io/metadata.name: ingress-nginx
-        podSelector:
-          matchLabels:
-            app.kubernetes.io/name: ingress-nginx
-      - namespaceSelector:
-          matchLabels:
             kubernetes.io/metadata.name: db
         podSelector:
           matchLabels:
@@ -38,12 +32,12 @@ spec:
         podSelector:
          matchLabels:
           k8s-app: kube-dns
-      # durch ip block ersetzen im techn. Artefakt
-     #- namespaceSelector:
-     #     matchLabels:
-     #       kubernetes.io/metadata.name: keycloak
-     #  podSelector:
-     #     matchLabels:
-     #       app: kc
-      - ipBlock:
-          cidr: 192.168.56.106/32
+     # durch ip block ersetzen im techn. Artefakt
+      - namespaceSelector:
+          matchLabels:
+            kubernetes.io/metadata.name: keycloak
+        podSelector:
+          matchLabels:
+            app: kc
+     # - ipBlock:
+    #    cidr: 192.168.56.106/32
