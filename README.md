@@ -23,11 +23,11 @@ Genereller Ablauf:
 
 /scripts für den deployment prozess:
 
-   Zuerst deploy.sh 
-   
-                  --> falls neue instanz akzeptiert wird deploy_green.sh
+                  Zuerst Ausführung von deploy.sh um graue Instanz bereitzustellen 
+
+                  --> falls neue instanz akzeptiert wird deploy_green.sh (Namensgebung verwirrend; Es wird diejenige Instanz ersetzt, die NICHT von den Kunden genutzt wird. Die grüne Instanz wird nicht zwingend ersetzt)
                     
-                    --> falls nicht deploy_grey.sh
+                  --> falls nicht /steps/delete_grey.sh ausführen um Test-Instanz zu löschen, und zurück zum Ausgangszustand zu kommen
 
 /security für Härtungsmaßnahmen
 
