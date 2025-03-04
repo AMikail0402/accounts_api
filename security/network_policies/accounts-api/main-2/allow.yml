@@ -32,7 +32,6 @@ spec:
         podSelector:
          matchLabels:
           k8s-app: kube-dns
- 
       - namespaceSelector:
           matchLabels:
             kubernetes.io/metadata.name: keycloak
