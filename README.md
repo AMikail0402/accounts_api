@@ -1,21 +1,31 @@
-# accounts_api
-Projekt welches initialisiert wurde, um ein Verständnis für die Funktionsweise von Spring-Applikationen zu entwickeln
+Wichtige Dateien: 
 
-Lern-Ressourcen:
-    Im Mittelpunkt: 
-    - - https://www.youtube.com/watch?v=9SGDpanrc8U
-    Spring-Applikation:
-    - https://docs.oracle.com/javaee/6/tutorial/doc/bnbpz.html
-    - https://docs.spring.io/spring-framework/reference/core/beans/dependencies/factory-collaborators.html
-    - https://docs.spring.io/spring-boot/docs/1.1.0.M1/reference/html/howto-database-initialization.html
-    - https://stackoverflow.com/questions/438146/what-are-the-possible-values-of-the-hibernate-hbm2ddl-auto-configuration-and-wha
-    - https://www.baeldung.com/java-jar-manifest
-    - https://www.baeldung.com/spring-boot-fix-the-no-main-manifest-attribute
+////// Schema-transfer //////////
 
-    DB:
-    - https://www.baeldung.com/spring-data-rest-relationships
+Genereller Ablauf:
+1. Löschung von Test-Tabellen
+2. Schema-Dump von Prod wird in temporären Container gespeichert
+3. Einspielen des Schema-Dumps in Test-DB
 
-Zum Ausführen startup.sh ausführen
+/deployment/db --> Alle Daten bezüglich des Schema-Transfers
+             /users --> Alle SQL-Nutzeraccounts
+             /sql_code --> Code der für Löschung von Test-Tabellen genutzt wird
+             /files --> pgpassfile und sql-code base64-codiert in kubernetes-secrets
+             tranfer-job.yaml --> Kubernetes-Job
 
+/security/roles/transfer-role --> RBAC-Rolle für Transfer
 
+////////////////////////////////
 
+/scripts für den deployment prozess:
+   Zuerst deploy.sh --> falls neue instanz akzeptiert wird deploy_green.sh
+                    --> falls nicht deploy_grey.sh
+
+/security für Härtungsmaßnahmen
+   /roles --> rbac rollen
+   /cis-hardening -- > Konfiguration der kubernetes komponenten
+   /secrets --> Speicherung von sensiblen Dateien
+
+/deployment für Anwendungsbereitstellungen
+   /api_secure --> Bereitstellung von Api-Pods, die mit Podsecurity-Standards konform sind
+   /networking --> Anpassung der Netzwerkkonfiguration
