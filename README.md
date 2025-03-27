@@ -1,6 +1,19 @@
 Wichtige Dateien: 
 
-////// Schema-transfer //////////
+//////////////////// Banken-Applikation ////////////////////
+
+Im Ordner /apps/accounts-api kann der Quellcode für die Platzhalter-Applikation betrachtet werden, die im technischen Artefakt betrieben wird.
+
+////////////////////////////////////////
+
+//////////////////// Daten-Analyse ////////////////////
+
+Im Pfad /apps/dataanalysis kann die selbstentwickelte Software-Lösung betrachtet werden, die für die Deutung von Telemetrie-Daten genutzt wurde
+
+////////////////////////////////////////
+
+
+//////////////////// Schema-transfer ////////////////////
 
 Genereller Ablauf:
 1. Löschung von Test-Tabellen
@@ -19,7 +32,9 @@ Genereller Ablauf:
 
 /security/roles/transfer-role --> RBAC-Rolle für Transfer
 
-////////////////////////////////
+////////////////////////////////////////
+
+//////////// Deployment-Prozess ////////////////////
 
 /scripts für den deployment prozess:
 
@@ -28,6 +43,10 @@ Genereller Ablauf:
                   --> falls neue instanz akzeptiert wird deploy_new_version.sh: Führt dazu, dass Test-Instanz gelöscht wird, und Neue Version in der Umgebung bereitsgestellt wird, die nicht von den Kunden genutzt wird.
 
                   --> falls nicht /steps/delete_grey.sh ausführen um Test-Instanz zu löschen, und zurück zum Ausgangszustand zu kommen
+
+////////////////////////////////////////
+
+//////////////////// Security ////////////////////
 
 /security für Härtungsmaßnahmen
 
@@ -42,3 +61,5 @@ Genereller Ablauf:
             /api_secure --> Bereitstellung von Api-Pods, die mit Podsecurity-Standards konform sind
 
             /networking --> Anpassung der Netzwerkkonfiguration
+
+////////////////////////////////////////
