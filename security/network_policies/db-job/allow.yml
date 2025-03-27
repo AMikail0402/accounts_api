@@ -8,22 +8,7 @@ spec:
     matchLabels:
       app: cron
   policyTypes:
-  - Ingress
   - Egress
-  ingress:
-  - from:
-      - namespaceSelector:
-          matchLabels:
-            kubernetes.io/metadata.name: db
-        podSelector:
-          matchLabels:
-            app.kubernetes.io/name: postgresql
-      - namespaceSelector:
-          matchLabels:
-            kubernetes.io/metadata.name: db-2
-        podSelector:
-          matchLabels:
-            app.kubernetes.io/name: postgresql
   egress:
   - to:  
       - namespaceSelector:
