@@ -25,8 +25,8 @@ Genereller Ablauf:
 
                   Zuerst Ausführung von deploy.sh um graue Instanz bereitzustellen 
 
-                  --> falls neue instanz akzeptiert wird deploy_green.sh (Namensgebung verwirrend; Es wird diejenige Instanz ersetzt, die NICHT von den Kunden genutzt wird. Die grüne Instanz wird nicht zwingend ersetzt)
-                    
+                  --> falls neue instanz akzeptiert wird deploy_new_version.sh: Führt dazu, dass Test-Instanz gelöscht wird, und Neue Version in der Umgebung bereitsgestellt wird, die nicht von den Kunden genutzt wird.
+
                   --> falls nicht /steps/delete_grey.sh ausführen um Test-Instanz zu löschen, und zurück zum Ausgangszustand zu kommen
 
 /security für Härtungsmaßnahmen
