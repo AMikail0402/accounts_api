@@ -13,9 +13,12 @@ spec:
        labels:
          app: accounts-api
       spec:
-         hostUsers: false
          containers:
          - name: accounts-api
+           securityContext:
+             runAsUser: 1100
+             runAsGroup: 1100
+             readOnlyRootFilesystem: true
            image: docker.registry/accounts-api:1
            resources:
             limits:
@@ -25,9 +28,6 @@ spec:
            volumeMounts: 
              - mountPath: /chroot
                name: host
-           envFrom:
-           - configMapRef:
-               name: accounts-api-configmap
          volumes:
           - name: host
             hostPath:

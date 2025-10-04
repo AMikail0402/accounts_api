@@ -18,8 +18,6 @@ BEGIN
     END LOOP;
 END $$;
 
-
-
 -- sources
 -- https://www.dbvis.com/thetable/how-to-kill-all-connections-to-a-database-in-postgresql/
 -- https://stackoverflow.com/questions/3327312/how-can-i-drop-all-the-tables-in-a-postgresql-database

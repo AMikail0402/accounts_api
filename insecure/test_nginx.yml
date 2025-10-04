@@ -5,6 +5,8 @@ metadata:
 spec:
   containers:
     - name: nginx
+      securityContext:
+             readOnlyRootFilesystem: true
       image: nginx:latest
       ports:
         - containerPort: 80
